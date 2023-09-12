@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:index, :show]
+    # skip_before_action :authorize, only: [:index, :show]
 
     def index
         contacts = Contact.all
-        render json: contacts, include: :user, status: :ok
+        render json: contacts, status: :ok
     end
 
     def show
@@ -33,7 +33,7 @@ class ContactsController < ApplicationController
     end
 
     def destroy
-        contact = find_contact
+        contact = Contact.find_by(id: params[:id])
         if contact
             contact.destroy
             render json: {}, head: :no_content

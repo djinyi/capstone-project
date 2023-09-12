@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:index, :show]
+    # skip_before_action :authorize, only: [:index, :show, :destroy]
 
     def index
         pets = Pet.all
@@ -9,9 +9,10 @@ class PetsController < ApplicationController
     end
 
     def show
-        pet = find_Pet
-        if Pet.user.match?(@current_user)
-            render json: pet, status: :ok
+        user = User.find(params[:id])
+        pets = user.pets
+        if pets
+            render json: pets, status: :ok
         else
             render_not_found_response
         end
@@ -33,7 +34,7 @@ class PetsController < ApplicationController
     end
 
     def destroy
-        pet = find_Pet
+        pet = find_pet
         if pet
             pet.destroy
             render json: {}, head: :no_content

@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState, useContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./NavBar";
+import Header from "./Header";
+import Home from "./Home";
+import Pets from "./Pets";
+import Profile from "./Profile";
+import Contacts from "./Contacts";
+import Checklist from "./Checklist";
+import Welcome from "./Welcome";
+import { UserContext } from "./user/UserContext";
+
 
 function App() {
+  const { user, setUser } = useContext(UserContext);
+  const [loggingIn, setLoggingIn] = useState(false);
+
+  console.log(user)
+
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    });
+
+  }, [setUser]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <NavBar />
+      {!user ? (
+        <main>
+          <Welcome loggingIn={loggingIn} setLoggingIn={setLoggingIn} />
+        </main>
+      ) : (
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} /> 
+            <Route path="/pets" element={<Pets />} /> 
+            <Route path="/pets/:pets/contacts" element={<Contacts />} /> 
+            <Route path="/checklist" element={<Checklist />} /> 
+            <Route path="/profile" element={<Profile />} />  
+          </Routes>
+        </main>
+      )}
     </div>
   );
 }
