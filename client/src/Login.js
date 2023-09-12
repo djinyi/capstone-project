@@ -22,8 +22,8 @@ function LogIn({ setLoggingIn }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          navigate("/")
           setUser(user)
+          navigate("/")
           return setLoggingIn(loggingIn => !loggingIn)
         })
       } else {

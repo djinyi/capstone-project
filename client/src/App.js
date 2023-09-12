@@ -20,22 +20,24 @@ function App() {
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user))
-      }
-    });
+        r.json().then((user) => {
+          setUser(user)
+          setLoggingIn(true)
+      })
+    }});
 
-  }, [setUser]);
+  }, [loggingIn, setUser]);
 
   return (
     <div>
       <Header />
-      <NavBar />
-      {!user ? (
+      {!loggingIn ? (
         <main>
           <Welcome loggingIn={loggingIn} setLoggingIn={setLoggingIn} />
         </main>
       ) : (
         <main>
+          <NavBar />
           <Routes>
             <Route path="/" element={<Home />} /> 
             <Route path="/pets" element={<Pets />} /> 
