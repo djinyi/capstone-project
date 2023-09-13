@@ -8,6 +8,7 @@ import Profile from "./Profile";
 import Contacts from "./Contacts";
 import Checklist from "./Checklist";
 import Welcome from "./Welcome";
+import LogOut from "./LogOut";
 import { UserContext } from "./user/UserContext";
 
 
@@ -37,13 +38,14 @@ function App() {
         </main>
       ) : (
         <main>
-          <NavBar />
+          <NavBar setLoggingIn={setLoggingIn} />
           <Routes>
             <Route path="/" element={<Home />} /> 
             <Route path="/pets" element={<Pets />} /> 
             <Route path="/pets/:pets/contacts" element={<Contacts />} /> 
             <Route path="/checklist" element={<Checklist />} /> 
             <Route path="/profile" element={<Profile />} />  
+            <Route path="/logout" element={<LogOut />} />
           </Routes>
         </main>
       )}

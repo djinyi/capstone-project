@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "./user/UserContext";
 
 
-function NavBar( ) {
+function NavBar({ setLoggingIn } ) {
+    const { setUser } = useContext(UserContext)
 
+    function handleLogoutClick() {
+      fetch("/logout", { method: "DELETE" }).then((r) => {
+        if (r.ok) {
+          setUser(null)
+          setLoggingIn(false)
+        }
+      });
+    }
 
 
     return (
@@ -26,6 +36,9 @@ function NavBar( ) {
                 <p>Checklist</p>
             </NavLink>
             </ul>
+            <ul onClick={handleLogoutClick}><NavLink exact to="/logout">
+                <p>Logout</p>
+            </NavLink></ul>
         </div>
     )
 }
