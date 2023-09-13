@@ -15,6 +15,7 @@ import { UserContext } from "./user/UserContext";
 function App() {
   const { user, setUser } = useContext(UserContext);
   const [loggingIn, setLoggingIn] = useState(false);
+  const [pets, setPets] = useState([]);
 
   console.log(user)
 
@@ -24,10 +25,19 @@ function App() {
         r.json().then((user) => {
           setUser(user)
           setLoggingIn(true)
+          fetchPets()
       })
     }});
 
   }, [loggingIn, setUser]);
+
+  function fetchPets(){
+    fetch("/pets")
+      .then((r) => r.json())
+      .then((r) => setPets(r));
+  };
+
+  let listContacts = pets.map((pet) => pet.contacts).flat()
 
   return (
     <div>
@@ -41,8 +51,8 @@ function App() {
           <NavBar setLoggingIn={setLoggingIn} />
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path="/pets" element={<Pets />} /> 
-            <Route path="/pets/:pets/contacts" element={<Contacts />} /> 
+            <Route path="/pets" element={<Pets pets={pets}/>} /> 
+            <Route path="/contacts" element={<Contacts listContacts={listContacts} pets={pets}/>} /> 
             <Route path="/checklist" element={<Checklist />} /> 
             <Route path="/profile" element={<Profile />} />  
             <Route path="/logout" element={<LogOut />} />

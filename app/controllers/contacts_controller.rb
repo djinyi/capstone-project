@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     wrap_parameters format: []
-    # skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :show, :create_new, :destroy]
 
     def index
         contacts = Contact.all
@@ -17,8 +17,9 @@ class ContactsController < ApplicationController
         end
     end
 
-    def create
-        contact = @current_user.contacts.create!(Contact_params)
+    def create_new
+        pet = Pet.find_by(id: params[:pet_id])
+        contact = pet.contacts.create!(contact_params)
         render json: contact, status: :created
     end
 
