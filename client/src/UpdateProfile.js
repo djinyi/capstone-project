@@ -5,7 +5,7 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
 
     function handleChange(e, setFn) {
         setFn(e.target.value)
-      }
+    }
       
     function handleSave(e){
     
@@ -58,7 +58,7 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
           value={address}
           onChange={(e) => handleChange(e, setAddress)}
           showEditButton />
-          <button> Submit </button>
+          <button> Submit Edit</button>
           </form>
           <p>
                 <b>{errors}</b>
