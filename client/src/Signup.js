@@ -6,6 +6,11 @@ function SignUp({ setLoggingIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [name, setName] = useState("");
+  const [phone_number, setPhone_number] = useState(0);
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [dob, setDob] = useState("");
   const [errors, setErrors] = useState([]);
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -21,6 +26,11 @@ function SignUp({ setLoggingIn }) {
         username,
         password,
         password_confirmation: passwordConfirmation,
+        name,
+        phone_number,
+        dob,
+        email,
+        address
       }),
     }).then((r) => {
       if (r.ok) {
@@ -70,6 +80,47 @@ function SignUp({ setLoggingIn }) {
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
+        />
+        <p>More about yourself...</p>
+        <label htmlFor="password"> Name </label>
+        <input
+          type="name"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          autoComplete="name"
+        />
+        <label htmlFor="phone_number"> Phone Number </label>
+        <input
+          type="phone_number"
+          id="phone_number"
+          value={phone_number}
+          onChange={(e) => setPhone_number(e.target.value)}
+          autoComplete="phone_number"
+        />
+        <label htmlFor="email"> Email </label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          autoComplete="email"
+        />
+        <label htmlFor="address"> Address </label>
+        <input
+          type="address"
+          id="address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          autoComplete="address"
+        />
+        <label htmlFor="dob"> DOB </label>
+        <input
+          type="dob"
+          id="dob"
+          value={dob}
+          onChange={(e) => setDob(e.target.value)}
+          autoComplete="dob"
         />
         <button type="submit">Sign Up</button>
       </form>

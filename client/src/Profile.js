@@ -1,11 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "./user/UserContext";
+import UpdateProfile from "./UpdateProfile";
 
 
 function Profile(){
     const { user } = useContext(UserContext);
+    const [edit, setEdit] = useState(true);
+    const [name, setName] = useState(user.name)
+    const [username, setUsername] = useState(user.username)
+    const [phone_number, setPhone_number] = useState(user.phone_number)
+    const [email, setEmail] = useState(user.email)
+    const [address, setAddress] = useState(user.address)
 
-    let phoneNumberString = user.phone_number.toString()
+    let phoneNumberString = phone_number.toString()
     let phoneNumber = phoneNumberString.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
     let birthdayString = user.dob.toString()
@@ -13,11 +20,12 @@ function Profile(){
 
     return(
         <div>
-        <p>Name: {user.name}  <i>({user.username})</i></p>
+        <p>Name: {name}  <i>({username})</i></p>
         <p>DOB: {birthday}</p>
-        <p>Email: {user.email}</p>
+        <p>Email: {email}</p>
         <p>Phone Number: {phoneNumber}</p>
-        <p>Address: {user.address}</p>
+        <p>Address: {address}</p>
+        {edit? <button onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdateProfile id={user.id} name={name} setName={setName} email={email} setEmail={setEmail} phone_number={phone_number} setPhone_number={setPhone_number} username={username} setUsername = {setUsername} address={address} setAddress={setAddress} />}
         </div>
     )
 }

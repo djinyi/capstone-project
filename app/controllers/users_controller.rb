@@ -11,6 +11,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find_by(id: params[:id])
+        if user
+            user.update!(user_params)
+            render json: user, status: :ok
+        else
+            not_authorized
+        end
+    end
+
     def index
         users = User.all 
         render json: users
@@ -22,9 +32,9 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        photograph = User.find_by(id: params[:id])
-        if photograph
-            photograph.destroy
+        user = User.find_by(id: params[:id])
+        if user
+            user.destroy
             render json: {}, head: :no_content
         else
             render_not_found_response
@@ -34,7 +44,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:username, :password, :password_confirmation, :name, :dob, :email, :phone_number, :address)
     end
 
     def record_error

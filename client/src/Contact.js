@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Contacts({ id, name, organization, relationship, phoneNumber, email, address, notes }){
+    const [errors, setErrors] = useState([]);
+
+    function handleDeleteClick() {
+        fetch(`/contacts/${id}`, {
+            method: "DELETE",
+        })
+        .then((r) => {
+            if(r.ok) {
+                r.json().then(console.log(id))
+            } else {
+                r.json().then((err) => setErrors(err.errors));
+            }
+     })
+    }
 
 
     return(
@@ -12,7 +26,7 @@ function Contacts({ id, name, organization, relationship, phoneNumber, email, ad
             <p>Email: {email}</p>
             <p>Address: {address}</p>
             <p>Notes: {notes}</p>
-
+            <button onClick={handleDeleteClick}> Delete </button>
         </div>
     )
 }
