@@ -25,7 +25,7 @@ function Pets({ pets }){
             if(r.ok) {
                 r.json().then((newPost) => console.log(newPost))
             } else {
-                r.json().then((err) => console.log(err.errors));
+                r.json().then((err) => setErrors(err.errors));
             }
           });
 

@@ -47,6 +47,7 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
             {edit? <button onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDob={newDob} setNewDob={setNewDob} newDescription={newDescription} setNewDescription={setNewDescription} />}
             <button onClick={handleDeleteClick}> Delete </button>
             </p>
+            <p>{errors}</p>
             
     
         </div>

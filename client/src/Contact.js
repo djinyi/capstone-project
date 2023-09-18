@@ -16,17 +16,20 @@ function Contacts({ id, name, organization, relationship, phoneNumber, email, ad
      })
     }
 
+    let phoneNumberString = phoneNumber.toString()
+    let phone_number = phoneNumberString.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
     return(
         <div>
             <p>Name: {name}</p>
             <p>Organization: {organization}</p>
             <p>Relationship: {relationship}</p>
-            <p>Phone Number: {phoneNumber}</p>
+            <p>Phone Number: {phone_number}</p>
             <p>Email: {email}</p>
             <p>Address: {address}</p>
             <p>Notes: {notes}</p>
             <button onClick={handleDeleteClick}> Delete </button>
+            <p>{errors}</p>
         </div>
     )
 }
