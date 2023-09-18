@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pet from "./Pet"
 
-function Pets({ pets }){
+function Pets({ pets, addNewPet }){
     const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
     const [medical_needs, setMedical_needs] = useState("");
@@ -23,7 +23,7 @@ function Pets({ pets }){
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then((newPost) => console.log(newPost))
+                r.json().then((newPet) => addNewPet(newPet))
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }

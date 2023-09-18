@@ -17,7 +17,6 @@ function App() {
   const [loggingIn, setLoggingIn] = useState(false);
   const [pets, setPets] = useState([]);
 
-  console.log(user)
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -37,7 +36,38 @@ function App() {
       .then((r) => setPets(r));
   };
 
+  function addNewPet(){
+
+  }
+
+  function createContact(){
+
+  }
+
+  function deleteContact(id, pet_id){
+    debugger
+    // alter pets by adding new contact to pets
+    // select the pet that has the deleted contact 
+    // then modify it
+
+    let updatedPets = pets.map((pet) => {
+      if(pet.id == pet_id){
+        let updatedContacts = pet.contacts.filter((contact) => contact.id !== id)
+        let updatedPet = {...pet, contacts: updatedContacts}
+        return updatedPet;
+        debugger
+      }
+      return pet;
+      debugger
+    })
+    setPets(updatedPets)
+    debugger
+
+  }
+
+
   let listContacts = pets.map((pet) => pet.contacts).flat()
+
 
   return (
     <div>
@@ -51,8 +81,8 @@ function App() {
           <NavBar setLoggingIn={setLoggingIn} />
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path="/pets" element={<Pets pets={pets}/>} /> 
-            <Route path="/contacts" element={<Contacts listContacts={listContacts} pets={pets}/>} /> 
+            <Route path="/pets" element={<Pets pets={pets} addNewPet={addNewPet} />} /> 
+            <Route path="/contacts" element={<Contacts deleteContact={deleteContact} createContact={createContact} listContacts={listContacts} pets={pets}/>} /> 
             <Route path="/checklist" element={<Checklist />} /> 
             <Route path="/profile" element={<Profile />} />  
             <Route path="/logout" element={<LogOut />} />

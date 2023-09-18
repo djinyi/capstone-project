@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Contact from "./Contact"
 
-function Contacts({ listContacts, pets }){
+function Contacts({ listContacts, pets, deleteContact, createContact }){
     const [name, setName] = useState("");
     const [organization, setOrganization] = useState("");
     const [relationship, setRelationship] = useState("");
@@ -26,7 +26,7 @@ function Contacts({ listContacts, pets }){
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then((newPost) => console.log(newPost))
+                r.json().then((newPost) => createContact(newPost))
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
@@ -36,6 +36,7 @@ function Contacts({ listContacts, pets }){
         setOrganization("");
         setPhone_number("");
     }
+
 
     let contactList = listContacts.map((contact) => (
         <Contact
@@ -48,6 +49,8 @@ function Contacts({ listContacts, pets }){
         email = {contact.email}
         address = {contact.address}
         phoneNumber = {contact.phone_number}
+        deleteContact={deleteContact}
+        pet_id={pet_id}
         />
     ))
 
