@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-function Contacts({ id, name, organization, relationship, phoneNumber, email, address, notes, handleDeleteClick }){
-    // const [errors, setErrors] = useState([]);
+function Contacts({ deleteContact, id, name, organization, relationship, phoneNumber, email, address, notes, pet_id }){
+    const [errors, setErrors] = useState([]);
 
-    // function handleDeleteClick() {
-    //     fetch(`/contacts/${id}`, {
-    //         method: "DELETE",
-    //     })
-    //     .then((r) => {
-    //         if(r.ok) {
-    //             r.json().then(deleteContact(id, pet_id))
-    //         } else {
-    //             r.json().then((err) => setErrors(err.errors));
-    //         }
-    //  })
-    // }
+    function handleDeleteClick() {
+        fetch(`/contacts/${id}`, {
+            method: "DELETE",
+        })
+        .then((r) => {
+            if(r.ok) {
+                r.json().then(deleteContact(id, pet_id))
+            } else {
+                r.json().then((err) => setErrors(err.errors));
+            }
+     })
+    }
 
     let phoneNumberString = phoneNumber.toString()
     let phone_number = phoneNumberString.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
@@ -28,8 +28,8 @@ function Contacts({ id, name, organization, relationship, phoneNumber, email, ad
             <p>Email: {email}</p>
             <p>Address: {address}</p>
             <p>Notes: {notes}</p>
-            <button onClick={() => handleDeleteClick(id)}> Delete </button>
-            {/* <p>{errors}</p> */}
+            <button onClick={() => handleDeleteClick()}> Delete </button>
+            <p>{errors}</p>
         </div>
     )
 }

@@ -10,7 +10,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
     const [address, setAddress] = useState("");
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState([]);
-    const [pet_id, setPet_id] = useState(0)
+    const [pet_id, setPet_id] = useState([])
     console.log(listContacts)
 
     function handleSubmit(e) {
@@ -26,7 +26,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then((newPost) => createContact(newPost))
+                r.json().then((newContact) => createContact(newContact, pet_id))
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
