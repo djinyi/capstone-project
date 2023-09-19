@@ -7,7 +7,7 @@ function Pets({ pets, addNewPet, deletePet }){
     const [medical_needs, setMedical_needs] = useState("");
     const [notes, setNotes] = useState("");
     const [dob, setDob] = useState("");
-    const [description, seDescription] = useState("");
+    const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
 
     function handleSubmit(e) {
@@ -32,6 +32,9 @@ function Pets({ pets, addNewPet, deletePet }){
         setName("");
         setBreed("");
         setNotes("");
+        setMedical_needs("");
+        setDob("");
+        setDescription("");
     }
 
     let petList = pets.map((pet) => (
@@ -78,7 +81,7 @@ function Pets({ pets, addNewPet, deletePet }){
                 type="text"
                 id="description"
                 value={description}
-                onChange={e => seDescription(e.target.value)}
+                onChange={e => setDescription(e.target.value)}
                 /> 
                 <label> Medical Needs </label>
                 <input

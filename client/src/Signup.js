@@ -44,7 +44,6 @@ function SignUp({ setLoggingIn }) {
     }
     });
 
-    setUsername("");
     setPassword("");
     setPasswordConfirmation("");
 

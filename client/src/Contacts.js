@@ -5,7 +5,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
     const [name, setName] = useState("");
     const [organization, setOrganization] = useState("");
     const [relationship, setRelationship] = useState("");
-    const [phone_number, setPhone_number] = useState(0);
+    const [phone_number, setPhone_number] = useState([]);
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
     const [notes, setNotes] = useState("");
@@ -34,7 +34,10 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
 
         setName("");
         setOrganization("");
+        setRelationship("");
         setPhone_number("");
+        setEmail("");
+        setAddress("");
     }
 
 
@@ -45,7 +48,6 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         name = {contact.name}
         organization = {contact.organization}
         relationship = {contact.relationship}
-        phone_number = {contact.phone_number}
         email = {contact.email}
         address = {contact.address}
         phoneNumber = {contact.phone_number}
