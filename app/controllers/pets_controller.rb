@@ -20,8 +20,12 @@ class PetsController < ApplicationController
     end
 
     def create
-        pet = @current_user.pets.create!(pet_params)
-        render json: pet, status: :created
+        pet = @current_user.pets.create(pet_params)
+        if pet.valid?
+            render json: pet, status: :created
+        else
+            render json: { error: "Name can't be blank" }, status: :unprocessable_entity
+        end
     end
 
     def update

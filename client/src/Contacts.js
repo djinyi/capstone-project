@@ -28,7 +28,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
             if(r.ok) {
                 r.json().then((newContact) => createContact(newContact, pet_id))
             } else {
-                r.json().then((err) => setErrors(err.errors));
+                r.json().then((err) => setErrors(err.error));
             }
           });
 
@@ -62,11 +62,9 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         <div>
             {contactList}
         <h3> Enter new contact info! </h3>
-        <p>
-            {errors.map((err) => (
-            <b key={err}>{err}! Must be logged in.</b>
-            ))}
-        </p>
+        <p><b>
+            {errors}
+        </b></p>
         <form onSubmit={handleSubmit}>
             <label> name </label>
             <input

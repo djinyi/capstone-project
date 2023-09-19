@@ -19,8 +19,12 @@ class ContactsController < ApplicationController
 
     def create_new
         pet = Pet.find_by(id: params[:pet_id])
-        contact = pet.contacts.create!(contact_params)
-        render json: contact, status: :created
+        contact = pet.contacts.create(contact_params)
+        if contact.valid?
+            render json: contact, status: :created
+        else
+            render json: {errors: contact.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def update

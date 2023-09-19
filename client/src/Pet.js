@@ -20,7 +20,7 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
             if(r.ok) {
                 r.json().then(deletePet(id))
             } else {
-                r.json().then((err) => setErrors(err.errors));
+                r.json().then((error) => setErrors(error.errors));
             }
      })
     }
@@ -47,8 +47,11 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
             {edit? <button onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDob={newDob} setNewDob={setNewDob} newDescription={newDescription} setNewDescription={setNewDescription} />}
             <button onClick={handleDeleteClick}> Delete </button>
             </p>
-            <p>{errors}</p>
-            
+            <p></p>
+            {errors.map((error) => (
+             <p key={error}>{error}</p>
+            ))
+            }
     
         </div>
 

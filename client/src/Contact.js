@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Contacts({ deleteContact, id, name, organization, relationship, phoneNumber, email, address, notes, pet_id }){
+function Contacts({ deleteContact, id, name, organization, relationship, phoneNumber, email, address, notes }){
     const [errors, setErrors] = useState([]);
 
     function handleDeleteClick() {
@@ -9,7 +9,7 @@ function Contacts({ deleteContact, id, name, organization, relationship, phoneNu
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then(deleteContact(id, pet_id))
+                r.json().then(deleteContact(id))
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }

@@ -25,7 +25,7 @@ function Pets({ pets, addNewPet, deletePet }){
             if(r.ok) {
                 r.json().then((newPet) => addNewPet(newPet))
             } else {
-                r.json().then((err) => setErrors(err.errors));
+                r.json().then((err) => setErrors(err.error));
             }
           });
 
@@ -55,11 +55,9 @@ function Pets({ pets, addNewPet, deletePet }){
             <h3>My Pets</h3>
             {petList}
             <h3> Enter new pet info! </h3>
-            <p>
-                {errors.map((err) => (
-                <b key={err}>{err}! Must be logged in.</b>
-                ))}
-            </p>
+            <p><b>
+                {errors}
+            </b></p>
             <form onSubmit={handleSubmit}>
                 <label> Name </label>
                 <input
