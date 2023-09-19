@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UpdatePet from "./UpdatePet";
 
-function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts }){
+function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts, deletePet }){
     const [errors, setErrors] = useState([]);
     const [edit, setEdit] = useState(true);
     const [newName, setNewName] = useState(name)
@@ -18,7 +18,7 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then(console.log(id))
+                r.json().then(deletePet(id))
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }

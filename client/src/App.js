@@ -36,32 +36,37 @@ function App() {
       .then((r) => setPets(r));
   };
 
-  function addNewPet(){
-
+  function addNewPet(newPet){
+    setPets([...pets, newPet])
   }
 
-  function createContact(){
+  function deletePet(id){
+    let updatedPets = pets.filter((pet) => pet.id !== id)
+    setPets(updatedPets)
+  }
+
+  function createContact(id, pet_id){
+    console.log(id, pet_id)
 
   }
 
   function deleteContact(id, pet_id){
     debugger
-    // alter pets by adding new contact to pets
-    // select the pet that has the deleted contact 
-    // then modify it
 
-    let updatedPets = pets.map((pet) => {
-      if(pet.id == pet_id){
-        let updatedContacts = pet.contacts.filter((contact) => contact.id !== id)
-        let updatedPet = {...pet, contacts: updatedContacts}
-        return updatedPet;
-        debugger
-      }
-      return pet;
-      debugger
-    })
-    setPets(updatedPets)
-    debugger
+    console.log(id, pet_id)
+
+    // let updatedPets = pets.map((pet) => {
+    //   if(pet.id == pet_id){
+    //     let updatedContacts = pet.contacts.filter((contact) => contact.id !== id)
+    //     let updatedPet = {...pet, contacts: updatedContacts}
+    //     return updatedPet;
+    //     debugger
+    //   }
+    //   return pet;
+    //   debugger
+    // })
+    // setPets(updatedPets)
+    // debugger
 
   }
 
@@ -81,7 +86,7 @@ function App() {
           <NavBar setLoggingIn={setLoggingIn} />
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path="/pets" element={<Pets pets={pets} addNewPet={addNewPet} />} /> 
+            <Route path="/pets" element={<Pets pets={pets} addNewPet={addNewPet} deletePet={deletePet} />} /> 
             <Route path="/contacts" element={<Contacts deleteContact={deleteContact} createContact={createContact} listContacts={listContacts} pets={pets}/>} /> 
             <Route path="/checklist" element={<Checklist />} /> 
             <Route path="/profile" element={<Profile />} />  

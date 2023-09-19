@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pet from "./Pet"
 
-function Pets({ pets, addNewPet }){
+function Pets({ pets, addNewPet, deletePet }){
     const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
     const [medical_needs, setMedical_needs] = useState("");
@@ -45,6 +45,7 @@ function Pets({ pets, addNewPet }){
         medical_needs = {pet.medical_needs}
         notes = {pet.notes}
         contacts = {pet.contacts}
+        deletePet={deletePet}
         />
     ))
 
