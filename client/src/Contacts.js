@@ -50,7 +50,6 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         address = {contact.address}
         phoneNumber = {contact.phone_number}
         deleteContact={deleteContact}
-        pet_id={pet_id}
         />
     ))
 

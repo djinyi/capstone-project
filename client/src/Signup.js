@@ -40,7 +40,7 @@ function SignUp({ setLoggingIn }) {
           return setLoggingIn(loggingIn => !loggingIn)
         });
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then((error) => setErrors(error.errors));
     }
     });
 
@@ -54,9 +54,10 @@ function SignUp({ setLoggingIn }) {
     <div>
       <form onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
-        <p>
-                  {errors}
-        </p>
+        {errors.map((error) => (
+          <p key={error}>{error}</p>
+        ))
+        }
         <label htmlFor="username"> Username </label>
         <input
           type="text"
