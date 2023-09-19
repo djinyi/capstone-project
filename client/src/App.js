@@ -78,21 +78,6 @@ function App() {
     setPets(updatedContact)
   }
 
-    // let updatedPets = pets.map((pet) => {
-    //   if(pet.id == pet_id){
-    //     let updatedContacts = pet.contacts.filter((contact) => contact.id !== id)
-    //     let updatedPet = {...pet, contacts: updatedContacts}
-    //     return updatedPet;
-    //     debugger
-    //   }
-    //   return pet;
-    //   debugger
-    // })
-    // setPets(updatedPets)
-    // debugger
-
-  // }
-
 
   let listContacts = pets.map((pet) => pet.contacts).flat()
 
