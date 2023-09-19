@@ -24,10 +24,12 @@ puts "🌱 Seeding spices..."
 # Contact.create(name: "Dr. Carly Bennett", organization: "Coconino Humane Association", relationship: "animal shelter", phone_number: 9285260742, address: "11665 N. US Hwy 89 Flagstaff, AZ 86004", email: "support@highcountryhumane.org", notes: "7 days a week 11 am - 5 pm")
 # Contact.create(name: "Miranda S.", organization: "N/A", relationship: "breeder", phone_number: 9281524613, address: "N/A", email: "miranda@birbmail.com", notes: "Tooth's breeder")
 
-PetContact.create(pet_id: 21, contact_id: 17)
-PetContact.create(pet_id: 22, contact_id: [17, 18])
-PetContact.create(pet_id: 23, contact_id: 19)
-PetContact.create(pet_id: 24, contact_id: 20)
-PetContact.create(pet_id: 25, contact_id: 18)
+# PetContact.create(pet_id: 21, contact_id: 17)
+# PetContact.create(pet_id: 22, contact_id: [17, 18])
+# PetContact.create(pet_id: 23, contact_id: 19)
+# PetContact.create(pet_id: 24, contact_id: 20)
+# PetContact.create(pet_id: 25, contact_id: 18)
+
+
 
 puts "✅ Done seeding!!"

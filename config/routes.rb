@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :contacts
   resources :pets
   resources :pet_contacts
+  resources :checklists
 
   post "/signup", to: "users#create"
   get "/photographers", to: "users#index"

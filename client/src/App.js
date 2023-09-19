@@ -13,7 +13,7 @@ import { UserContext } from "./user/UserContext";
 
 
 function App() {
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [loggingIn, setLoggingIn] = useState(false);
   const [pets, setPets] = useState([]);
 
