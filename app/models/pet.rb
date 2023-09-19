@@ -4,5 +4,6 @@ class Pet < ApplicationRecord
   has_many :contacts, through: :pet_contacts, dependent: :destroy
 
   validates :name, presence: true, length: { in: 1..15, message: "must have name at least." }
+  validates :dob, length: { is:6 }, numericality: { only_integer: true }
 
 end
