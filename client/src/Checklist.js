@@ -91,13 +91,6 @@ function deleteToDo(id){
     }
 }
 
-console.log(checklist)
-
-//  let finalList = checklist.map((check) => (
-//         <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>
-//     ))
-
-
     return(
         <div>
         <h3>Checklist</h3>
