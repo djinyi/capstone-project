@@ -5,7 +5,7 @@ function Checklist(){
     const { setUser } = useContext(UserContext);
     const [checklist, setChecklist] = useState([]);
     const [toDo, setToDo] = useState([])
-    const [toDos, setToDos] = useState([])
+    const [content, setContent] = useState(true)
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
@@ -13,11 +13,15 @@ function Checklist(){
           if (r.ok) {
             r.json().then((checklist) => {
                 setChecklist(checklist)
-                // getToDos(checklist)
-            })
-        }});
-    
-      }, [setUser, setChecklist]);
+                setContent(true)         
+            })} else {
+                r.json().then((err) => {
+                    setErrors(err.error)
+                    setContent(false)
+                });
+            }
+          })},
+          [setUser]);
 
       function handleSubmit(e) {
         e.preventDefault();
@@ -32,57 +36,74 @@ function Checklist(){
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then((newItem) => addToDo(newItem))
+                r.json().then((newItem) => {
+                    addToDo(newItem)
+                })
             } else {
                 r.json().then((err) => setErrors(err.error));
             }
           });
 
-        setToDo("");
+        setToDo("")
     }
 
-      function handleDeleteClick(id) {
+function handleDeleteClick(id) {
 
 
-        fetch(`/checklists/${id}`, {
-            method: "DELETE",
-        })
-        .then((r) => {
-            if(r.ok) {
-                r.json().then(deleteToDo(id))
-            } else {
-                r.json().then((error) => setErrors(error.errors));
-            }
-     })
-    }
+    fetch(`/checklists/${id}`, {
+        method: "DELETE",
+    })
+    .then((r) => {
+        if(r.ok) {
+            r.json().then(deleteToDo(id))
+        } else {
+            r.json().then((error) => setErrors(error.errors));
+        }
+    })
+}
+
 
 function addToDo(newItem){
+
     setChecklist([...checklist, newItem])
+
+
+        setContent(false)
+
+
+
+
 }
 
 function deleteToDo(id){
-    let list = checklist.filter((check) => check.id !== id)
+    let list = [...checklist].filter((check) => check.id !== id)
     setChecklist(list)
+
+
+    if(list.length > 0){
+        console.log("hi")
+        setContent(false)
+        
+    } else {
+        setContent(true)
+        setChecklist([])
+        console.log("jesus")
+    }
 }
 
-// function getToDos(checklist){
-//     console.log(checklist)
-//     let wild = checklist.map((check) => (
+console.log(checklist)
+
+//  let finalList = checklist.map((check) => (
 //         <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>
 //     ))
-//     setToDos(wild)
 
-// }
-
-
-    let wild = checklist.map((check) => (
-        <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>
-    ))
 
     return(
         <div>
         <h3>Checklist</h3>
-        <p>{wild}</p>
+        <p>{content? " " :
+        (checklist.map((check) => ( 
+            <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>))) }</p>
         <h3> add To-To </h3>
         <p><b>
             {errors}
