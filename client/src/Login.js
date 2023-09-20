@@ -9,7 +9,7 @@ function LogIn({ setLoggingIn }) {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
-  console.log(user)
+  console.log(user, "hi")
 
   function handleSubmit(e) {
     e.preventDefault();

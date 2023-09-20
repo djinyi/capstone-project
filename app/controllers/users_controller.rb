@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :show, :index, :destroy]
+    skip_before_action :authorize, only: [:create, :show, :change, :index, :destroy]
 
     def create
         user = User.create(user_params)
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     def update
         user = User.find_by(id: params[:id])
         if user
-            user.update!(user_params)
+            user.update!(asuser_params)
             render json: user, status: :ok
         else
             not_authorized
@@ -41,10 +41,28 @@ class UsersController < ApplicationController
         end
     end
 
+    def change
+        user = User.find_by(id: params[:id])
+        pet = user.pets.create(pet_params)
+        if pet.valid?
+            render json: pet, status: :created
+        else
+            render json: { error: "Name can't be blank" }, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def user_params
-        params.permit(:username, :password, :password_confirmation, :name, :dob, :email, :phone_number, :address)
+        params.permit(:id, :username, :password, :password_confirmation, :name, :dob, :email, :phone_number, :address)
+    end
+
+    def pet_params
+        params.permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes)
+    end
+
+    def asuser_params
+        params.permit(:username, :name, :dob, :email, :phone_number, :address)
     end
 
     def record_error

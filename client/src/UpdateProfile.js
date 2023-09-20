@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "./user/UserContext";
 
 function UpdateProfile({ id, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
     const [errors, setErrors] = useState([]);
+    const { user, setUser } = useContext(UserContext);
 
     function handleChange(e, setFn) {
         setFn(e.target.value)
@@ -22,12 +24,13 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
         })
         .then((r) => {
         if(r.ok) {
-            r.json().then((updated) => console.log(updated, id));
+            r.json().then((updated) => setUser(updated));
         } else {
             r.json().then((err) => setErrors(err.errors));
         }
         });
     }
+
 
     return(
         <div>

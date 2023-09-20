@@ -63,7 +63,6 @@ function handleDeleteClick(id) {
 
 
 function addToDo(newItem){
-    console.log(checklist)
 
     if(checklist.length <= 0){
         setChecklist([newItem])

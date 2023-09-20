@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  post "/:id/pets", to: "users#change"
+
   post "/:pet_id/contacts", to: "contacts#create_new"
   
 end
