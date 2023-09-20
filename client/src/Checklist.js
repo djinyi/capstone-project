@@ -76,9 +76,6 @@ function addToDo(newItem){
         setContent(false)
     }
 
-
-
-
 }
 
 function deleteToDo(id){
@@ -87,13 +84,11 @@ function deleteToDo(id){
 
 
     if(list.length > 0){
-        console.log("hi")
         setContent(false)
         
     } else {
         setContent(true)
         setChecklist([])
-        console.log("jesus")
     }
 }
 
@@ -107,7 +102,7 @@ function deleteToDo(id){
             <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>))) }</p>
         <h3> add To-To </h3>
         <p><b>
-            {/* {errors} */}
+
         </b></p>
         <form onSubmit={handleSubmit}>
             <label> To Do </label>
