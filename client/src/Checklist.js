@@ -5,7 +5,7 @@ function Checklist(){
     const { setUser } = useContext(UserContext);
     const [checklist, setChecklist] = useState([]);
     const [toDo, setToDo] = useState([])
-    const [content, setContent] = useState(true)
+    const [content, setContent] = useState(false)
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ function Checklist(){
           if (r.ok) {
             r.json().then((checklist) => {
                 setChecklist(checklist)
-                setContent(true)         
+                setContent(false)         
             })} else {
                 r.json().then((err) => {
                     setErrors(err.error)
@@ -26,7 +26,6 @@ function Checklist(){
       function handleSubmit(e) {
         e.preventDefault();
         const formData = { to_do: toDo }
-        console.log(formData)
         fetch("/checklists", {
             method: "POST",
             headers: {
@@ -40,7 +39,7 @@ function Checklist(){
                     addToDo(newItem)
                 })
             } else {
-                r.json().then((err) => setErrors(err.error));
+                r.json().then((err) => console.log(err.error));
             }
           });
 
@@ -64,11 +63,18 @@ function handleDeleteClick(id) {
 
 
 function addToDo(newItem){
+    console.log(checklist)
+
+    if(checklist.length <= 0){
+        setChecklist([newItem])
+        setContent(false)
+    } else if (checklist.length >= 1){
 
     setChecklist([...checklist, newItem])
 
 
         setContent(false)
+    }
 
 
 
@@ -81,13 +87,17 @@ function deleteToDo(id){
 
 
     if(list.length > 0){
+        console.log("hi")
         setContent(false)
         
     } else {
         setContent(true)
         setChecklist([])
+        console.log("jesus")
     }
 }
+
+
 
     return(
         <div>
@@ -97,7 +107,7 @@ function deleteToDo(id){
             <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>))) }</p>
         <h3> add To-To </h3>
         <p><b>
-            {errors}
+            {/* {errors} */}
         </b></p>
         <form onSubmit={handleSubmit}>
             <label> To Do </label>

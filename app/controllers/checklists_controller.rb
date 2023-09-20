@@ -5,7 +5,7 @@ class ChecklistsController < ApplicationController
         if checklist.count > 0
             render json: checklist, include: :user, status: :ok
         else
-            render json: { error: [id:0, to_do: " "]}
+            render json: { error: ["hi"]}, status: :unprocessable_entity
         end
     end
 
