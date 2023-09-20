@@ -81,13 +81,11 @@ function deleteToDo(id){
 
 
     if(list.length > 0){
-        console.log("hi")
         setContent(false)
         
     } else {
         setContent(true)
         setChecklist([])
-        console.log("jesus")
     }
 }
 
