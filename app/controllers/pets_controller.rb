@@ -29,6 +29,12 @@ class PetsController < ApplicationController
         # render json: pet, status: :created
     end
 
+    def pictures
+        pet = Pet.find_by(id: params[:id])
+        images = rails_blob_path(pet.images)
+        render json: {pet: pet.name, images: images}
+    end
+
 
     def update
         pet = find_pet
@@ -55,7 +61,7 @@ class PetsController < ApplicationController
     private
 
     def pet_params
-        params.permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes)
+        params.require(:pet).permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes, :images: [])
     end
 
     def find_pet
