@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   post "/:id/pets", to: "users#change"
 
   post "/:pet_id/contacts", to: "contacts#create_new"
+  get "/pets/:id", to: "pets#pictures"
+  patch "/pets/pic/:id", to: "pets#attach_picture"
   
 end

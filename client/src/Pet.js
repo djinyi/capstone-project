@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UpdatePet from "./UpdatePet";
+import PetGallerySubmit from "./PetGallerySubmit";
 
 function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts, deletePet }){
     const [errors, setErrors] = useState([]);
@@ -52,6 +53,7 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
              <p key={error}>{error}</p>
             ))
             }
+            <PetGallerySubmit id={id} />
     
         </div>
 

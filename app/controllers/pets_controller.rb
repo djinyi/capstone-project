@@ -1,19 +1,18 @@
 class PetsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:show, :destroy]
+    skip_before_action :authorize, only: [:show, :index, :destroy]
 
     def index
-        pets = @current_user.pets
-        # pets = Pet.all
+        # pets = @current_user.pets.all.with_attached_images
+        pets = Pet.all.with_attached_images
         render json: pets, include: :user, status: :ok
     end
 
     def show
-        user = User.find(params[:id])
-        pets = user.pets
+        pet = Pet.find(params[:id])
         if pets
-            render json: pets, status: :ok
+            render json: pet, status: :ok
         else
             render_not_found_response
         end
@@ -33,6 +32,12 @@ class PetsController < ApplicationController
         pet = Pet.find_by(id: params[:id])
         images = rails_blob_path(pet.images)
         render json: {pet: pet.name, images: images}
+    end
+
+    def attach_picture
+        pet = Pet.find_by(id: params[:id])
+        pet.update(images_params)
+        render json: pet
     end
 
 
@@ -61,7 +66,11 @@ class PetsController < ApplicationController
     private
 
     def pet_params
-        params.require(:pet).permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes, :images: [])
+        params.require(:pet).permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes, images:[])
+    end
+
+    def images_params
+        params.permit(images:{})
     end
 
     def find_pet
