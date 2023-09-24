@@ -4,5 +4,8 @@ class PetSerializer < ActiveModel::Serializer
 
   has_many :contacts
 
-  
+  def images
+    rails_blob_path(object.images, only_path:true) if object.images.attached?
+  end
+
 end
