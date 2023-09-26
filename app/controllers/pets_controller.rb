@@ -36,7 +36,7 @@ class PetsController < ApplicationController
 
     def attach_picture
         pet = Pet.find_by(id: params[:id])
-        pet.update(images_params)
+        pet.images.attach(params[:images])
         render json: pet
     end
 
@@ -70,7 +70,7 @@ class PetsController < ApplicationController
     end
 
     def images_params
-        params.permit(images:{})
+        params.permit(images:[])
     end
 
     def find_pet
