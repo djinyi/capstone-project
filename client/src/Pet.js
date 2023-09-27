@@ -12,6 +12,7 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
     const [newNotes, setNewNotes] = useState(notes)
     const [newDob, setNewDob] = useState(dob)
     const [newDescription, setNewDescription] = useState(description)
+    const [photos, setPhotos] = useState(images)
 
     function handleDeleteClick() {
         fetch(`/pets/${id}`, {
@@ -54,11 +55,16 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
             ))
             }
             <PetGallerySubmit id={id} />
-            {images && images.map ((photo, index) => (
+            {photos? (photos.map ((photo, index) => (
             <div key={index}>
-            <img height="300px" src={photo} alt=" "/>
-            </div>
-  ))}
+            <button onClick={() =>
+              setPhotos((photos) => {
+              return photos.filter((photo, i) => i !== index);
+            })}>x</button>
+            <img height="300px" src={photo} alt=" "/> </div>))) :
+
+            <img height="300px" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
+            }
     
         </div>
 

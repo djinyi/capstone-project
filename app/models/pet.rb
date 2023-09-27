@@ -10,10 +10,11 @@ class Pet < ApplicationRecord
   def image_urls
     if images.attached?
       images.map do |image|
+        # self.images.purge_later
         Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)
       end
-    else
-      self.images.attach(io: File.open(Rails.root.join('client', 'src', 'images', 'no_photo.jpeg')), filename: 'no-photo.jpeg', content_type: 'application/jpeg')
+    # else
+    #   self.images.attach(io: File.open(Rails.root.join('client', 'src', 'images', 'no_photo.jpeg')), filename: 'no-photo.jpeg', content_type: 'application/jpeg')
     end
   end
 
