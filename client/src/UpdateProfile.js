@@ -4,6 +4,8 @@ import { UserContext } from "./user/UserContext";
 function UpdateProfile({ id, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
     const [errors, setErrors] = useState([]);
     const { user, setUser } = useContext(UserContext);
+    
+    console.log(user)
 
     function handleChange(e, setFn) {
         setFn(e.target.value)

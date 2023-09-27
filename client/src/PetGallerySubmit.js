@@ -1,13 +1,13 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "./user/UserContext";
+import React, { useState } from "react";
+// import { UserContext } from "./user/UserContext";
 
 function PetGallerySubmit({ id }){
     const [selectedImage, setSelectedImage] = useState(null)
-    const [selectedImagePreview, setSelectedImagePreview] = useState("")
+    // const [selectedImagePreview, setSelectedImagePreview] = useState("")
     const [errors, setErrors] = useState([]);
-    const { user, setUser } = useContext(UserContext);
-    const { pets, setPets } = useState(user.pets);
-    const [images, setImages] = useState([]);
+    // const { user, setUser } = useContext(UserContext);
+    // const { pets, setPets } = useState(user.pets);
+    // const [images, setImages] = useState([]);
 
 
     function handlePostSubmit(e) {
@@ -39,14 +39,8 @@ function PetGallerySubmit({ id }){
 
     }
 
-    // let imageList = pets.map((pet) => {
-    //     let list = pet.images((image) => (
-    //     <img src={image} />
-    //     ))
-    // })
     return(
         <div>
-            {/* {imageList} */}
             <h3> Submit a photo of your pet:</h3>
             <form onSubmit={handlePostSubmit}>
                 <input

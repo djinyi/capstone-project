@@ -8,6 +8,8 @@ function Checklist(){
     const [content, setContent] = useState(false)
     const [errors, setErrors] = useState([]);
 
+    console.log(errors)
+
     useEffect(() => {
         fetch("/checklists").then((r) => {
           if (r.ok) {

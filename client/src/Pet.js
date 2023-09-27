@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import UpdatePet from "./UpdatePet";
 import PetGallerySubmit from "./PetGallerySubmit";
 
-function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts, deletePet }){
+function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts, deletePet, images }){
     const [errors, setErrors] = useState([]);
     const [edit, setEdit] = useState(true);
     const [newName, setNewName] = useState(name)
@@ -54,6 +54,11 @@ function Pet({ id, name, breed, medical_needs, notes, dob, description, contacts
             ))
             }
             <PetGallerySubmit id={id} />
+            {images && images.map ((photo, index) => (
+            <div key={index}>
+            <img height="300px" src={photo} alt=" "/>
+            </div>
+  ))}
     
         </div>
 

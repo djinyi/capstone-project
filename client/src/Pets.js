@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "./user/UserContext";
+import React, { useState } from "react";
+// import { UserContext } from "./user/UserContext";
 import Pet from "./Pet"
 
 function Pets({ pets, addNewPet, deletePet }){
@@ -10,7 +10,7 @@ function Pets({ pets, addNewPet, deletePet }){
     const [dob, setDob] = useState("");
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
-    const { user, setUser } = useContext(UserContext);
+    // const { user, setUser } = useContext(UserContext);
     const [images, setImages] = useState([]);
 
     function handleSubmit(e) {
@@ -52,6 +52,7 @@ function Pets({ pets, addNewPet, deletePet }){
         notes = {pet.notes}
         contacts = {pet.contacts}
         deletePet={deletePet}
+        images={pet.image_urls}
         />
     ))
 

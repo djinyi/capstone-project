@@ -1,11 +1,11 @@
 class PetsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:show, :index, :destroy]
+    skip_before_action :authorize, only: [:show, :destroy]
 
     def index
-        # pets = @current_user.pets.all.with_attached_images
-        pets = Pet.all.with_attached_images
+        pets = @current_user.pets.all.with_attached_images
+        # pets = Pet.all.with_attached_images
         render json: pets, include: :user, status: :ok
     end
 
@@ -20,6 +20,7 @@ class PetsController < ApplicationController
 
     def create
         pet = @current_user.pets.create(pet_params)
+        pet.images.attach(params[:images])
         if pet
             render json: pet, status: :created
         else
