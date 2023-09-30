@@ -7,7 +7,7 @@ function SignUp({ setLoggingIn }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [name, setName] = useState("");
-  const [phone_number, setPhone_number] = useState(0);
+  const [phone_number, setPhone_number] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDob] = useState("");

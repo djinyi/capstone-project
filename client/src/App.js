@@ -88,13 +88,17 @@ function App() {
       {!loggingIn ? (
         <main>
           <Welcome loggingIn={loggingIn} setLoggingIn={setLoggingIn} />
+          <h1 className="text-3xl">hi</h1>
+            <h1 class="text-6xl font-bold underline">
+    Hello world!
+  </h1>
         </main>
       ) : (
         <main>
           <NavBar setLoggingIn={setLoggingIn} />
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path="/pets" element={<Pets pets={pets} addNewPet={addNewPet} deletePet={deletePet} />} /> 
+            <Route path="/pets" element={<Pets setPets={setPets} pets={pets} addNewPet={addNewPet} deletePet={deletePet} />} /> 
             <Route path="/contacts" element={<Contacts deleteContact={deleteContact} createContact={createContact} listContacts={listContacts} pets={pets}/>} /> 
             <Route path="/checklist" element={<Checklist />} /> 
             <Route path="/profile" element={<Profile />} />  

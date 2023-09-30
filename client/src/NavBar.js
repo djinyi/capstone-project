@@ -17,29 +17,29 @@ function NavBar({ setLoggingIn } ) {
 
 
     return (
-        <div>
-            <ul><NavLink exact to="/">
-                <p>Home</p>
+        <nav class="flex justify-center space-x-4">
+            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600 rounded-tl-lg rounded-bl-lg"><NavLink exact to="/">
+                <p class="p-8 text-white drop-shadow-2xl">Home</p>
             </NavLink>
             </ul>
-            <ul><NavLink exact to="/profile">
-                <p >Profile</p>
+            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/profile">
+                <p class="p-8 text-white drop-shadow-2xl">Profile</p>
             </NavLink></ul>
-            <ul><NavLink exact to="/pets">
-                <p>Pets</p>
+            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/pets">
+                <p class="p-8 text-white drop-shadow-2xl">Pets</p>
             </NavLink></ul>
-            <ul><NavLink exact to="/contacts">
-                <p>Contacts</p>
+            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/contacts">
+                <p class="p-8 text-white drop-shadow-2xl">Contacts</p>
             </NavLink>
             </ul>
-            <ul><NavLink exact to="/checklist">
-                <p>Checklist</p>
+            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/checklist">
+                <p class="p-8 text-white drop-shadow-2xl">Checklist</p>
             </NavLink>
             </ul>
-            <ul onClick={handleLogoutClick}><NavLink exact to="/logout">
-                <p>Logout</p>
+            <ul  class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600 rounded-br-lg rounded-tr-lg" onClick={handleLogoutClick}><NavLink exact to="/logout">
+                <p class="p-8 text-white drop-shadow-2xl">Logout</p>
             </NavLink></ul>
-        </div>
+        </nav>
     )
 }
 

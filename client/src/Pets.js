@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { UserContext } from "./user/UserContext";
 import Pet from "./Pet"
 
-function Pets({ pets, addNewPet, deletePet }){
+function Pets({ setPets, pets, addNewPet, deletePet }){
     const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
     const [medical_needs, setMedical_needs] = useState("");
@@ -40,6 +40,20 @@ function Pets({ pets, addNewPet, deletePet }){
         setDescription("");
     }
 
+    console.log(pets)
+
+    function updatePets(data, id){
+        console.log(data, id)
+
+        let list = pets.map((pet) => {
+            if(pet.id === id){
+                return {...pet, ...data}
+            }
+            return pet
+        })
+        setPets(list)
+    }
+
     let petList = pets.map((pet) => (
         <Pet
         key = {pet.id}
@@ -53,6 +67,7 @@ function Pets({ pets, addNewPet, deletePet }){
         contacts = {pet.contacts}
         deletePet={deletePet}
         images={pet.image_urls}
+        updatePets={updatePets}
         />
     ))
 

@@ -20,7 +20,7 @@ class PetsController < ApplicationController
 
     def create
         pet = @current_user.pets.create(pet_params)
-        pet.images.attach(params[:images])
+        # pet.images.attach(params[:images])
         if pet
             render json: pet, status: :created
         else
@@ -67,7 +67,7 @@ class PetsController < ApplicationController
     private
 
     def pet_params
-        params.require(:pet).permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes, images:[])
+        params.permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes)
     end
 
     def images_params

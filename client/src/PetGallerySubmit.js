@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { UserContext } from "./user/UserContext";
 
-function PetGallerySubmit({ id }){
+function PetGallerySubmit({ id, setPhotos }){
     const [selectedImage, setSelectedImage] = useState(null)
     // const [selectedImagePreview, setSelectedImagePreview] = useState("")
     const [errors, setErrors] = useState([]);
@@ -30,7 +30,7 @@ function PetGallerySubmit({ id }){
         .then((r) => {
             if (r.ok){
                 r.json().then((r) => {
-                    console.log(r)
+                    setPhotos(r.image_urls)
                 })
             } else {
                 r.json().then((err) => setErrors(err.errors))

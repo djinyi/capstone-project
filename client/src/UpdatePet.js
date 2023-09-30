@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function UpdatePet({ id, newName, setNewName, newNotes, setNewNotes, newMedical_needs, setNewMedical_needs, newBreed, setNewBreed, newDob, setNewDob, newDescription, setNewDescription }){
+function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes, newMedical_needs, setNewMedical_needs, newBreed, setNewBreed, newDob, setNewDob, newDescription, setNewDescription }){
     const [errors, setErrors] = useState([]);
 
     function handleChange(e, setFn) {
@@ -27,7 +27,7 @@ function UpdatePet({ id, newName, setNewName, newNotes, setNewNotes, newMedical_
             })
             .then((r) => {
             if(r.ok) {
-                r.json().then((updated) => console.log(updated, id));
+                r.json().then((updated) => updatePets(updated, id));
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }

@@ -6,8 +6,7 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :username, presence: true, uniqueness: true, length: { in: 2..15 }
-    # validates :password, length: { minimum: 8 }
-    validates :dob, length: { is:6 }, numericality: { only_integer: true, message: "must be 8 numbers only" }
+    validates :dob, length: { is:6 }, numericality: { only_integer: true, message: "must be 6 numbers only" }
     validates :phone_number, length: { is:10 }, numericality: { only_integer: true }
 end
 

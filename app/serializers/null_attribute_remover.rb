@@ -1,5 +1,6 @@
 module NullAttributesRemover
-  def attributes(*args)     
-    super.compact   
-  end
+  # def attributes(*args)     
+  #   super.compact   
+  # end
+
 end
