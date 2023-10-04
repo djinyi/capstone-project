@@ -38,6 +38,8 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         setPhone_number("");
         setEmail("");
         setAddress("");
+        setNotes("")
+        setPet_id([])
     }
 
 
@@ -68,7 +70,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
             {errors}
         </b></p>
         <form onSubmit={handleSubmit}>
-            <label> name </label>
+            <label> Name </label>
             <input
             type="text"
             id="name"
