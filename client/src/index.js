@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from "./index.css"
-// import './input.css';
 import App from './App';
 import { UserProvider } from "./user/UserContext";
 import { BrowserRouter } from "react-router-dom";
