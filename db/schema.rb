@@ -63,14 +63,6 @@ ActiveRecord::Schema.define(version: 2023_09_21_170504) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "exhibits", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.string "date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "pet_contacts", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "contact_id", null: false
@@ -94,27 +86,6 @@ ActiveRecord::Schema.define(version: 2023_09_21_170504) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
-  create_table "photographers", force: :cascade do |t|
-    t.string "name"
-    t.string "year"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.string "image_url"
-    t.string "title"
-    t.integer "year"
-    t.string "description"
-    t.string "medium"
-    t.bigint "photographer_id", null: false
-    t.bigint "exhibit_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["exhibit_id"], name: "index_photos_on_exhibit_id"
-    t.index ["photographer_id"], name: "index_photos_on_photographer_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
@@ -135,6 +106,4 @@ ActiveRecord::Schema.define(version: 2023_09_21_170504) do
   add_foreign_key "pet_contacts", "contacts"
   add_foreign_key "pet_contacts", "pets"
   add_foreign_key "pets", "users"
-  add_foreign_key "photos", "exhibits"
-  add_foreign_key "photos", "photographers"
 end

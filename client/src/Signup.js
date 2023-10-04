@@ -7,16 +7,22 @@ function SignUp({ setLoggingIn }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [name, setName] = useState("");
-  const [phone_number, setPhone_number] = useState("");
+  const [phone_number, setPhone_number] = useState([]);
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [dob, setDob] = useState("");
+  const [dob, setDob] = useState([]);
   const [errors, setErrors] = useState([]);
+  const [error, setError] = useState([]);
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
   
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(dob, phone_number)
+
+    if(dob.length != 6&& phone_number.length != 10){
+      setError("Must have username and password. Dob must be 6 numbers and phone number must be 10 numbers.")
+    } else {
     fetch("/signup", {
       method: "POST",
       headers: {
@@ -46,6 +52,8 @@ function SignUp({ setLoggingIn }) {
 
     setPassword("");
     setPasswordConfirmation("");
+    setError("")
+  }
 
   }
 
@@ -57,6 +65,7 @@ function SignUp({ setLoggingIn }) {
           <p key={error}>{error}</p>
         ))
         }
+        {error}
         <label htmlFor="username"> Username </label>
         <input
           type="text"
@@ -95,6 +104,7 @@ function SignUp({ setLoggingIn }) {
           type="phone_number"
           id="phone_number"
           value={phone_number}
+          placeholder="1234567890"
           onChange={(e) => setPhone_number(e.target.value)}
           autoComplete="phone_number"
         />
@@ -119,6 +129,7 @@ function SignUp({ setLoggingIn }) {
           type="dob"
           id="dob"
           value={dob}
+          placeholder="MMDDYY"
           onChange={(e) => setDob(e.target.value)}
           autoComplete="dob"
         />

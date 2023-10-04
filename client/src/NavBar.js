@@ -3,41 +3,41 @@ import { NavLink } from "react-router-dom";
 import { UserContext } from "./user/UserContext";
 
 
-function NavBar({ setLoggingIn } ) {
+function NavBar({ setLoggingIn }) {
     const { setUser } = useContext(UserContext)
 
     function handleLogoutClick() {
-      fetch("/logout", { method: "DELETE" }).then((r) => {
-        if (r.ok) {
-          setUser(null)
-          setLoggingIn(false)
-        }
-      });
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+            if (r.ok) {
+                setUser(null)
+                setLoggingIn(false)
+            }
+        });
     }
 
 
     return (
-        <nav class="flex justify-center space-x-4">
-            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600 rounded-tl-lg rounded-bl-lg"><NavLink exact to="/">
-                <p class="p-8 text-white drop-shadow-2xl">Home</p>
+        <nav class="flex flex-row items-center justify-between flex-wrap bg-gray-100 p-6">
+            <ul class="float-left font-bold visited:bg-sky-600"><NavLink exact to="/">
+                <p class="p-3 font-bold text-sky-500 hover:bg-sky-100 p-3">Home</p>
             </NavLink>
             </ul>
-            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/profile">
-                <p class="p-8 text-white drop-shadow-2xl">Profile</p>
+            <ul class="float-left font-bold visited:bg-sky-600"><NavLink exact to="/profile">
+                <p class="p-3 text-sky-500 hover:bg-sky-100">Profile</p>
             </NavLink></ul>
-            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/pets">
-                <p class="p-8 text-white drop-shadow-2xl">Pets</p>
+            <ul class="float-left font-bold visited:bg-sky-600"><NavLink exact to="/pets">
+                <p class="p-3 text-sky-500 hover:bg-sky-100">Pets</p>
             </NavLink></ul>
-            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/contacts">
-                <p class="p-8 text-white drop-shadow-2xl">Contacts</p>
+            <ul class="float-left font-bold visited:bg-sky-600"><NavLink exact to="/contacts">
+                <p class="p-3 text-sky-500 hover:bg-sky-100">Contacts</p>
             </NavLink>
             </ul>
-            <ul class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600"><NavLink exact to="/checklist">
-                <p class="p-8 text-white drop-shadow-2xl">Checklist</p>
+            <ul class="float-left font-bold visited:bg-sky-600"><NavLink exact to="/checklist">
+                <p class="p-3 text-sky-500 hover:bg-sky-100">Checklist</p>
             </NavLink>
             </ul>
-            <ul  class="float-left font-bold bg-sky-400 hover:bg-sky-600 visited:bg-sky-600 rounded-br-lg rounded-tr-lg" onClick={handleLogoutClick}><NavLink exact to="/logout">
-                <p class="p-8 text-white drop-shadow-2xl">Logout</p>
+            <ul class="float-left font-bold visited:bg-sky-600" onClick={handleLogoutClick}><NavLink exact to="/logout">
+                <p class="p-3 text-sky-500 hover:bg-sky-100">Logout</p>
             </NavLink></ul>
         </nav>
     )

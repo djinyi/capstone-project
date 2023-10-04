@@ -27,8 +27,8 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
      })
     }
 
-    let birthdayString = newDob?.toString()
-    let birthday = birthdayString.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
+    let birthdayString = newDob?.toString().padStart(6, "0")
+    let birthday = birthdayString?.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
 
 
     let listContacts = contacts.map((contact) => (
@@ -37,17 +37,17 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
 
 
     return(
-        <div>
-            <p>Name: {newName}</p>
-            <p>Breed: {newBreed}</p>
-            <p>Description: {newDescription}</p>
-            <p>Medical Needs: {newMedical_needs}</p>
-            <p>Notes: {newNotes}</p>
-            <p>Date of Birth: {birthday}</p>
+        <div class="p-6">
+            <p><i>Name: </i> <b class="font-semi-bold">{newName}</b></p>
+            <p><i>Breed: </i>{newBreed}</p>
+            <p><i>Description: </i>{newDescription}</p>
+            <p><i>Medical Needs: </i>{newMedical_needs}</p>
+            <p><i>Notes: </i>{newNotes}</p>
+            <p><i>Date of Birth: </i>{birthday}</p>
             {listContacts}
             <p>
-            {edit? <button onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet updatePets={updatePets} id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDob={newDob} setNewDob={setNewDob} newDescription={newDescription} setNewDescription={setNewDescription} />}
-            <button onClick={handleDeleteClick}> Delete </button>
+            {edit? <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet updatePets={updatePets} id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDob={newDob} setNewDob={setNewDob} newDescription={newDescription} setNewDescription={setNewDescription} />}
+            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 rounded" onClick={handleDeleteClick}> Delete </button>
             </p>
             <p></p>
             {errors.map((error) => (
@@ -61,9 +61,9 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
               setPhotos((photos) => {
               return photos.filter((photo, i) => i !== index);
             })}>x</button>
-            <img height="150px" src={photo} alt=" "/> </div>))) :
+            <img class="h-64" src={photo} alt=" "/> </div>))) :
 
-            <img height="300px" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
+            <img class="h-64" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
             }
     
         </div>

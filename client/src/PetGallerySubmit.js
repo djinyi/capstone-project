@@ -37,18 +37,19 @@ function PetGallerySubmit({ id, setPhotos }){
             }
         })}
 
+
     }
 
     return(
         <div>
-            <h3> Submit a photo of your pet:</h3>
+            <h3> Submit a photo of your pet! (only .jpeg and .png files)</h3>
             <form onSubmit={handlePostSubmit}>
                 <input
                 type="file"
                 accept="image/png, image/jpeg"
                 onChange={(e) => setSelectedImage(e.target.files[0])} 
                 />
-                <button>Submit</button>
+                <button class="mr-3 my-2">Submit</button>
 
             </form>
             {errors}

@@ -71,58 +71,73 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
 
     
     return(
-        <div>
-            <h3>My Pets</h3>
+        <div class="grid grid-cols-1">
+            <div class="block">
+            <h1 class="text-3xl text-sky-500 text-center p-4">My Pets</h1>
+            </div>
+            <div class="block">
             {petList}
-            <h3> Enter new pet info! </h3>
+            </div>
+            <h3 class="text-lg text-gray-800 p-6"> Enter new pet info! </h3>
             <p><b>
                 {errors}
             </b></p>
-            <form onSubmit={handleSubmit}>
-                <label> Name </label>
+            <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
                 <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 type="text"
                 id="name"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 />
-                <label> Breed </label>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Breed </label>
                 <input
+                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                
                 type="text"
                 id="breed"
                 value={breed}
                 onChange={e => setBreed(e.target.value)}
                 />
-                <label> Description </label>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Description </label>
                 <input
+                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                
                 type="text"
                 id="description"
                 value={description}
                 onChange={e => setDescription(e.target.value)}
                 /> 
-                <label> Medical Needs </label>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Medical Needs </label>
                 <input
+                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                
                 type="text"
                 id="medical_needs"
                 value={medical_needs}
                 onChange={e => setMedical_needs(e.target.value)}
                 /> 
-                <label> Notes </label>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Notes </label>
                 <input
+                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                
                 type="text"
                 id="description"
                 value={notes}
                 onChange={e => setNotes(e.target.value)}
                 /> 
-                <label> DoB </label>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> DoB </label>
                 <input
+                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                
                 type="text"
                 id="dob"
                 placeholder="MMDDYY"
                 value={dob}
                 onChange={e => setDob(e.target.value)}
                 /> 
-                <button type="submit"> Submit </button>
+                <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit"> Submit </button>
                 </form>
         </div>
     )

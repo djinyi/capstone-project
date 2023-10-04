@@ -16,8 +16,8 @@ function Contacts({ deleteContact, id, name, organization, relationship, phoneNu
      })
     }
 
-    let phoneNumberString = phoneNumber.toString()
-    let phone_number = phoneNumberString.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
+    let phoneNumberString = phoneNumber?.toString().padStart(10, "0")
+    let phone_number = phoneNumberString?.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
     return(
         <div>

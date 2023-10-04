@@ -7,10 +7,10 @@ function Home(){
 
     return(
         <div>
-            <p>Welcome, <b>{user.name}</b>!</p>
+            <h1 class="text-center text-xl m-6">Welcome, <b>{user.name}</b>!</h1>
             
 
-            </div>
+        </div>
     )
 }
 

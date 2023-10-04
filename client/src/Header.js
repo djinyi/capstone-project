@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <h1>
-        Pet Prepare Kit
+        Pet Prepare Kit ✔ 
       </h1>
     </header>
   );
