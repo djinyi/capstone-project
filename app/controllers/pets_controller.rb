@@ -5,7 +5,6 @@ class PetsController < ApplicationController
 
     def index
         pets = @current_user.pets.all.with_attached_images
-        # pets = Pet.all.with_attached_images
         render json: pets, include: :user, status: :ok
     end
 
