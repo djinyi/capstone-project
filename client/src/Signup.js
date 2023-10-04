@@ -59,81 +59,142 @@ function SignUp({ setLoggingIn }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <h3>Sign Up</h3>
+      <form class="w-full max-w-sm" onSubmit={handleSubmit}>
+        <h3 class="text-3xl text-sky-500 text-center p-4">Sign Up</h3>
         {errors.map((error) => (
           <p key={error}>{error}</p>
         ))
         }
         {error}
-        <label htmlFor="username"> Username </label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password"> Password </label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-        <label htmlFor="password"> Password Confirmation </label>
-        <input
-          type="password"
-          id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete="current-password"
-        />
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="text"
+              id="username"
+              autoComplete="off"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password Confirmation </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="password"
+              id="password_confirmation"
+              value={passwordConfirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+              autoComplete="current-password"
+            />
+          </div>
+        </div>
         <p>More about yourself...</p>
-        <label htmlFor="password"> Name </label>
-        <input
-          type="name"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          autoComplete="name"
-        />
-        <label htmlFor="phone_number"> Phone Number </label>
-        <input
-          type="phone_number"
-          id="phone_number"
-          value={phone_number}
-          placeholder="1234567890"
-          onChange={(e) => setPhone_number(e.target.value)}
-          autoComplete="phone_number"
-        />
-        <label htmlFor="email"> Email </label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          autoComplete="email"
-        />
-        <label htmlFor="address"> Address </label>
-        <input
-          type="address"
-          id="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          autoComplete="address"
-        />
-        <label htmlFor="dob"> DOB </label>
-        <input
-          type="dob"
-          id="dob"
-          value={dob}
-          placeholder="MMDDYY"
-          onChange={(e) => setDob(e.target.value)}
-          autoComplete="dob"
-        />
-        <button type="submit">Sign Up</button>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Name </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="name"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoComplete="name"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="phone_number"> Phone Number </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="phone_number"
+              id="phone_number"
+              value={phone_number}
+              placeholder="1234567890"
+              onChange={(e) => setPhone_number(e.target.value)}
+              autoComplete="phone_number"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="email"> Email </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="address"> Address </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="address"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              autoComplete="address"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:items-center mb-6">
+          <div class="md:w-1/3">
+            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="dob"> DOB </label>
+          </div>
+          <div class="md:w-2/3">
+            <input
+              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              type="dob"
+              id="dob"
+              value={dob}
+              placeholder="MMDDYY"
+              onChange={(e) => setDob(e.target.value)}
+              autoComplete="dob"
+            />
+          </div>
+        </div>
+        <div class="md:w-1/3"></div>
+          <div class="md:w-2/3">
+            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit">Sign Up</button>
+          </div>
+
       </form>
     </div>
   );

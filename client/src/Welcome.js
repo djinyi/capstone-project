@@ -15,8 +15,8 @@ function Welcome({ loggingIn, setLoggingIn}){
             ) : (
                 <>
                     <Signup loggingIn={loggingIn} setLoggingIn={setLoggingIn}/>
-                    <p>Already have an account?
-                    <button onClick={() => setShowLogin(true)}>Log In</button>
+                    <p>Already have an account? 
+                    <button class="italic m-1" onClick={() => setShowLogin(true)}>Log In</button>
                     </p>
                 </>
             )}
