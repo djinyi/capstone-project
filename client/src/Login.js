@@ -27,7 +27,7 @@ function LogIn({ setLoggingIn }) {
           return setLoggingIn(loggingIn => !loggingIn)
         })
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then((err) => setErrors(err.error));
     }
 
     });

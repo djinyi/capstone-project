@@ -27,7 +27,7 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
      })
     }
 
-    let birthdayString = newDob.toString()
+    let birthdayString = newDob?.toString()
     let birthday = birthdayString.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
 
 

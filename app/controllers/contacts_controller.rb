@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
                 render json: {error: "Contact must have name at least. Phone number must be 10 numbers."}, status: :unprocessable_entity
             end
         else
-            render json: {error: "Contact must be for selected Pet"}, status: :unprocessable_entity
+            render json: {error: "Contact must be for selected Pet. Add Pet first if none."}, status: :unprocessable_entity
         end
     end
 

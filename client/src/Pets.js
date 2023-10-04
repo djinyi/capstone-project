@@ -10,12 +10,10 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
     const [dob, setDob] = useState("");
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
-    // const { user, setUser } = useContext(UserContext);
-    const [images, setImages] = useState([]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        const formData = {name, breed, medical_needs, notes, dob, description, images}
+        const formData = {name, breed, medical_needs, notes, dob, description}
         console.log(formData)
         fetch(`/pets`, {
             method: "POST",
@@ -120,17 +118,10 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
                 <input
                 type="text"
                 id="dob"
+                placeholder="MMDDYY"
                 value={dob}
                 onChange={e => setDob(e.target.value)}
                 /> 
-
-                <input
-                type="file"
-                accept="image/png, image/jpeg"
-                onChange={(e) => setImages(e.target.files[0])} 
-                />
-
-
                 <button type="submit"> Submit </button>
                 </form>
         </div>
