@@ -39,7 +39,6 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         setEmail("");
         setAddress("");
         setNotes("")
-        setPet_id([])
     }
 
 
@@ -130,7 +129,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Pet </label>
             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 onChange={e => setPet_id(e.target.value)} name="exhibit" id="exhibit">
-                <option> Choose Pet </option>
+                <option value={pet_id}> Choose Pet </option>
                 {petsDropdown}
             </select>
             <div class="relative"></div>
