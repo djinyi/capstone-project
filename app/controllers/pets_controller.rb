@@ -20,13 +20,11 @@ class PetsController < ApplicationController
 
     def create
         pet = @current_user.pets.create(pet_params)
-        # pet.images.attach(params[:images])
         if pet
             render json: pet, status: :created
         else
             render json: { error: "Name can't be blank" }, status: :unprocessable_entity
         end
-        # render json: pet, status: :created
     end
 
     def pictures
