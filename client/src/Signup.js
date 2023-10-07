@@ -61,11 +61,10 @@ function SignUp({ setLoggingIn }) {
     <div>
       <form class="w-full max-w-sm" onSubmit={handleSubmit}>
         <h3 class="text-3xl text-sky-500 text-center p-4">Sign Up</h3>
-        {errors.map((error) => (
-          <p key={error}>{error}</p>
-        ))
-        }
-        {error}
+        <b class="text-red-500">{errors?.map((err) => (
+            <ul key={err}>{err}</ul>
+          ))}</b>
+        <b class="text-red-500">{error}</b>
         <div class="md:flex md:items-center mb-6">
           <div class="md:w-1/3">
             <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username </label>

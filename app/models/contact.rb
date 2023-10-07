@@ -4,4 +4,5 @@ class Contact < ApplicationRecord
 
     validates :name, presence: true, length: { in: 1..15, message: "must have name at least." }
     validates :phone_number, length: { is:10 }, numericality: { only_integer: true }
+    validates :pet_id, presence: true
 end

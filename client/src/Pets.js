@@ -26,7 +26,7 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
             if(r.ok) {
                 r.json().then((newPet) => addNewPet(newPet))
             } else {
-                r.json().then((err) => setErrors(err.error));
+                r.json().then((err) => setErrors(err.errors));
             }
           });
 
@@ -79,9 +79,9 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
             {petList}
             </div>
             <h3 class="text-lg text-gray-800 p-6"> Enter new pet info! </h3>
-            <p><b>
-                {errors}
-            </b></p>
+            <p><b class="text-red-500">{errors?.map((err) => (
+            <ul key={err}>{err}</ul>
+          ))}</b></p>
             <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
                 <input

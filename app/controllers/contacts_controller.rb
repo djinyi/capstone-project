@@ -20,14 +20,14 @@ class ContactsController < ApplicationController
     def create_contact
         pet = Pet.find_by(id: params[:pet_id])
         if pet
-            contact = pet.contacts.create(contact_params)
+            contact = pet.contacts.create!(contact_params)
             if contact.valid?
                 render json: contact, status: :created
             else
-                render json: {error: "Contact must have name at least. Phone number must be 10 numbers."}, status: :unprocessable_entity
+                render json: {errors: ["Contact must have name at least.", "Phone number must be 10 numbers."]}, status: :unprocessable_entity
             end
         else
-            render json: {error: "Contact must be for selected Pet. Add Pet first if none."}, status: :unprocessable_entity
+            render json: {errors: ["Contact must be for selected Pet. Add Pet first if none."]}, status: :unprocessable_entity
         end
     end
 

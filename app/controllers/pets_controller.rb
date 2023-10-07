@@ -1,5 +1,4 @@
 class PetsController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     wrap_parameters format: []
     skip_before_action :authorize, only: [:show, :destroy]
 
@@ -19,12 +18,8 @@ class PetsController < ApplicationController
     end
 
     def create
-        pet = @current_user.pets.create(pet_params)
-        if pet
-            render json: pet, status: :created
-        else
-            render json: { error: "Name can't be blank" }, status: :unprocessable_entity
-        end
+        pet = @current_user.pets.create!(pet_params)
+        render json: pet, status: :created
     end
 
     def pictures
@@ -84,7 +79,4 @@ class PetsController < ApplicationController
         render json: {errors: "Not authorized."}, status: :unprocessable_entity
     end
 
-    def render_unprocessable_entity_response(invalid)
-        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
-    end
 end

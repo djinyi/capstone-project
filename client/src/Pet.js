@@ -50,10 +50,9 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
             <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 rounded" onClick={handleDeleteClick}> Delete </button>
             </p>
             <p></p>
-            {errors.map((error) => (
-             <p key={error}>{error}</p>
-            ))
-            }
+            <b class="text-red-500">{errors?.map((err) => (
+            <ul key={err}>{err}</ul>
+          ))}</b>
             <PetGallerySubmit id={id} setPhotos={setPhotos} />
             {photos? (photos.map ((photo, index) => (
             <div key={index}>

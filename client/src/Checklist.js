@@ -41,7 +41,7 @@ function Checklist(){
                     addToDo(newItem)
                 })
             } else {
-                r.json().then((err) => console.log(err.error));
+                r.json().then((err) => setErrors(err.error));
             }
           });
 
@@ -102,11 +102,11 @@ function deleteToDo(id){
         (checklist.map((check) => ( 
             <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>))) }</p>
         {/* <h3> add To-To </h3> */}
-        <p><b>
-
-        </b></p>
         <div class="block w-full max-w-lg p-10">
         <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
+        <p><b class="text-red-500">
+            {errors}
+        </b></p>
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> To Do </label>
             <input
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
