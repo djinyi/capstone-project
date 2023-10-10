@@ -30,12 +30,6 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
     let birthdayString = newDob?.toString().padStart(6, "0")
     let birthday = birthdayString?.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
 
-
-    // let listContacts = contacts.map((contact) => (
-    //     <Link key={contact.id} to="/contacts">  Contacts: {contact.newName} </Link>
-    // )) 
-
-
     return(
         <div class="p-6">
             <p><i>Name: </i> <b class="font-semi-bold">{newName}</b></p>
@@ -44,10 +38,9 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
             <p><i>Medical Needs: </i>{newMedical_needs}</p>
             <p><i>Notes: </i>{newNotes}</p>
             <p><i>Date of Birth: </i>{birthday}</p>
-            {/* {listContacts} */}
             <p>
             {edit? <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet updatePets={updatePets} id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDescription={newDescription} setNewDescription={setNewDescription} />}
-            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 rounded" onClick={handleDeleteClick}> Delete </button>
+            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 my-2 rounded" onClick={handleDeleteClick}> Delete </button>
             </p>
             <p></p>
             <b class="text-red-500">{errors?.map((err) => (

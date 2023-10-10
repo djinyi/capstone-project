@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-// import { UserContext } from "./user/UserContext";
 
 function PetGallerySubmit({ id, setPhotos }){
     const [selectedImage, setSelectedImage] = useState(null)
-    // const [selectedImagePreview, setSelectedImagePreview] = useState("")
     const [errors, setErrors] = useState([]);
-    // const { user, setUser } = useContext(UserContext);
-    // const { pets, setPets } = useState(user.pets);
-    // const [images, setImages] = useState([]);
-
 
     function handlePostSubmit(e) {
         console.log("pic in")
@@ -42,7 +36,7 @@ function PetGallerySubmit({ id, setPhotos }){
 
     return(
         <div>
-            <h3> Submit a photo of your pet! (only .jpeg and .png files)</h3>
+            <h3 class="font-semibold text-gray-600"> Submit a photo of your pet! (only .jpeg and .png files)</h3>
             <form onSubmit={handlePostSubmit}>
                 <input
                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500"

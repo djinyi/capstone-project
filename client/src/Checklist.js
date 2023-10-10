@@ -5,22 +5,14 @@ function Checklist(){
     const { setUser } = useContext(UserContext);
     const [checklist, setChecklist] = useState([]);
     const [toDo, setToDo] = useState([])
-    const [content, setContent] = useState(false)
     const [errors, setErrors] = useState([]);
-
-    console.log(errors)
 
     useEffect(() => {
         fetch("/checklists").then((r) => {
           if (r.ok) {
-            r.json().then((checklist) => {
-                setChecklist(checklist)
-                setContent(false)         
-            })} else {
-                r.json().then((err) => {
-                    setErrors(err.error)
-                    setContent(false)
-                });
+            r.json().then((checklist) => setChecklist(checklist)        
+            )} else {
+            r.json().then((err) => setErrors(err.error));
             }
           })},
           [setUser]);
@@ -42,7 +34,7 @@ function Checklist(){
                     setErrors([])
                 })
             } else {
-                r.json().then((err) => setErrors(err.error));
+                r.json().then((err) => setErrors(err.errors));
             }
           });
 
@@ -69,29 +61,15 @@ function addToDo(newItem){
 
     if(checklist.length <= 0){
         setChecklist([newItem])
-        setContent(false)
     } else if (checklist.length >= 1){
 
     setChecklist([...checklist, newItem])
-
-
-        setContent(false)
     }
-
 }
 
 function deleteToDo(id){
     let list = [...checklist].filter((check) => check.id !== id)
     setChecklist(list)
-
-
-    if(list.length > 0){
-        setContent(false)
-        
-    } else {
-        setContent(true)
-        setChecklist([])
-    }
 }
 
 
@@ -99,15 +77,15 @@ function deleteToDo(id){
     return(
         <div>
         <h1 class="font-display text-3xl italic text-sky-700 text-center p-4">Checklist</h1>
-        <p>{content? " " :
-        (checklist.map((check) => ( 
-            <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>))) }</p>
-        {/* <h3> add To-To </h3> */}
+        <p>{checklist?.map((check) => ( 
+            <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>)) }</p>
         <div class="block w-full max-w-lg p-10">
         <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
-        <div class="mb-5"><b>
-            {errors}
-        </b></div>
+        <div class="mb-5">
+            <b class="text-red-500">{errors?.map((err) => (
+            <ul key={err}>{err}</ul>
+          ))}</b>
+        </div>
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> To Do </label>
             <input
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"

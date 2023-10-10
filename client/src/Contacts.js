@@ -73,12 +73,13 @@ function Contacts({ listContacts, deleteContact, createContact }){
         <div>
             <h1 class="font-display text-3xl italic text-sky-700 text-center p-4">Contacts</h1>
             {contactList}
-             <h3> Enter new contact info! </h3>
+            <div class="mx-5">
              <b class="text-red-500">{errors?.map((err) => (
-            <ul key={err}>{err}</ul>
-          ))}</b>
-                       {/* <b class="text-red-500">{errors}</b> */}
-         <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
+                 <ul key={err}>{err}</ul>
+                 ))}</b>
+            </div>
+            <h3 class="font-semibold text-gray-600 mx-5"> Enter new contact info! </h3>
+         <form class="block w-full max-w-lg p-5" onSubmit={handleSubmit}>
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
             <input
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"

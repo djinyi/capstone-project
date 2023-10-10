@@ -43,33 +43,38 @@ function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes,
 
     return(
         <div>
-        <h3> Edit: </h3>
+        <h3 class="text-center text-gray-400"> Edit: </h3>
         <form onSubmit={handleSave}>
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={newName}
           placeholder="Name"
           onChange={(e) => handleChange(e, setNewName)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={newBreed}
           placeholder="Breed"
           onChange={(e) => handleChange(e, setNewBreed)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={newMedical_needs}
           placeholder="Medical needs"
           onChange={(e) => handleChange(e, setNewMedical_needs)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={newNotes}
           placeholder="Notes"
           onChange={(e) => handleChange(e, setNewNotes)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={newDescription}
           placeholder="Description"

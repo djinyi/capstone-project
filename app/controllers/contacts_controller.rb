@@ -25,7 +25,7 @@ class ContactsController < ApplicationController
     # end
 
     def destroy
-        contact = Contact.find_by(id: params[:id])
+        contact = find_contact
         contact.destroy
         render json: {}, head: :no_content
     end

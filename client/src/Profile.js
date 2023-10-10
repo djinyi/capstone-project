@@ -20,7 +20,7 @@ function Profile(){
 
     return(
         <div>
-            <h1 class="font-display text-3xl italic text-sky-700 text-center p-4">My Profile</h1>
+        <h1 class="font-display text-3xl italic text-sky-700 text-center p-4">My Profile</h1>
         <p><i>Name:</i> {name}  (<b><i>{username}</i></b>)</p>
         <p><i>DOB:</i> {birthday}</p>
         <p><i>Email:</i> {email}</p>

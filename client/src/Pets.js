@@ -30,7 +30,10 @@ function Pets(){
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then((newPet) => addNewPet(newPet))
+                r.json().then((newPet) => {
+                    addNewPet(newPet)
+                    setErrors([])
+                })
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
@@ -45,8 +48,6 @@ function Pets(){
         }
         
     }
-
-    console.log(pets)
 
     function addNewPet(newPet){
         setPets([...pets, newPet])
@@ -95,11 +96,13 @@ function Pets(){
             <div class="block">
             {petList}
             </div>
-            <h3 class="text-lg text-gray-800 p-6"> Enter new pet info! </h3>
+            <div class="mx-5">
             <p><b class="text-red-500">{errors?.map((err) => (
-            <ul key={err}>{err}</ul>
-          ))}</b></p>
-            <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
+                <ul key={err}>{err}</ul>
+                ))}</b></p>
+            </div>
+            <h3 class="font-semibold text-gray-600 mx-5"> Enter new pet info! </h3>
+            <form class="block w-full max-w-lg p-5" onSubmit={handleSubmit}>
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
                 <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"

@@ -4,9 +4,9 @@ import { UserContext } from "./user/UserContext";
 function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
     const [errors, setErrors] = useState([]);
     const [message, setMessage] = useState([]);
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     
-    console.log(user)
+    // console.log(user)
 
     function handleChange(e, setFn) {
         setFn(e.target.value)
@@ -43,33 +43,38 @@ function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_nu
 
     return(
         <div>
-        <h3> Edit: </h3>
+        <h3 class="text-center text-gray-400"> Edit: </h3>
         <form onSubmit={handleSave}>
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={name}
           placeholder="Name"
           onChange={(e) => handleChange(e, setName)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={username}
           placeholder="Username"
           onChange={(e) => handleChange(e, setUsername)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={phone_number}
           placeholder="1231231234"
           onChange={(e) => handleChange(e, setPhone_number)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={email}
           placeholder="email@email.com"
           onChange={(e) => handleChange(e, setEmail)}
           showEditButton />
           <input
+          class="bg-gray-100 m-1"
           name="textbox"
           value={address}
           placeholder="Address"
