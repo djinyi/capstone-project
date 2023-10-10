@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:show, :destroy]
+    skip_before_action :authorize, only: [:show, :destroy, :create_contact]
 
     def index
         pets = @current_user.pets.all.with_attached_images
@@ -77,6 +77,10 @@ class PetsController < ApplicationController
     
     def not_authorized
         render json: {errors: "Not authorized."}, status: :unprocessable_entity
+    end
+
+    def contact_params
+        params.permit(:name, :organization, :relationship, :phone_number, :address, :email, :notes)
     end
 
 end

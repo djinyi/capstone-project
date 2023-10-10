@@ -10,12 +10,15 @@ import Checklist from "./Checklist";
 import Welcome from "./Welcome";
 import LogOut from "./LogOut";
 import { UserContext } from "./user/UserContext";
+import { PetContext } from "./pet/PetContext";
 
 
 function App() {
   const { setUser } = useContext(UserContext);
+  const {pets, setPets} = useContext(PetContext);
   const [loggingIn, setLoggingIn] = useState(false);
-  const [pets, setPets] = useState([]);
+
+  console.log(pets)
 
 
   useEffect(() => {
@@ -24,26 +27,26 @@ function App() {
         r.json().then((user) => {
           setUser(user)
           setLoggingIn(true)
-          fetchPets()
+          // fetchPets()
       })
     }});
 
   }, [loggingIn, setUser]);
 
-  function fetchPets(){
-    fetch("/pets")
-      .then((r) => r.json())
-      .then((r) => setPets(r));
-  };
+  // function fetchPets(){
+  //   fetch("/pets")
+  //     .then((r) => r.json())
+  //     .then((r) => setPets(r));
+  // };
 
-  function addNewPet(newPet){
-    setPets([...pets, newPet])
-  }
+  // function addNewPet(newPet){
+  //   setPets([...pets, newPet])
+  // }
 
-  function deletePet(id){
-    let updatedPets = pets.filter((pet) => pet.id !== id)
-    setPets(updatedPets)
-  }
+  // function deletePet(id){
+  //   let updatedPets = pets.filter((pet) => pet.id !== id)
+  //   setPets(updatedPets)
+  // }
 
   function createContact(newContact, pet_id){
 
@@ -79,7 +82,7 @@ function App() {
   }
 
 
-  let listContacts = pets.map((pet) => pet.contacts).flat()
+  let listContacts = pets?.map((pet) => pet.contacts).flat()
 
 
   return (
@@ -94,8 +97,8 @@ function App() {
           <NavBar setLoggingIn={setLoggingIn} />
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path="/pets" element={<Pets setPets={setPets} pets={pets} addNewPet={addNewPet} deletePet={deletePet} />} /> 
-            <Route path="/contacts" element={<Contacts deleteContact={deleteContact} createContact={createContact} listContacts={listContacts} pets={pets}/>} /> 
+            <Route path="/pets" element={<Pets />} /> 
+            <Route path="/contacts" element={<Contacts deleteContact={deleteContact} createContact={createContact} listContacts={listContacts}/>} /> 
             <Route path="/checklist" element={<Checklist />} /> 
             <Route path="/profile" element={<Profile />} />  
             <Route path="/logout" element={<LogOut />} />

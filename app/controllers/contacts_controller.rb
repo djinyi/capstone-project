@@ -1,10 +1,11 @@
 class ContactsController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    # rescue_from ActiveRecord::RecordNotFound, with: :render_unprocessable_entity_response
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:show, :add_pics, :destroy]
+    skip_before_action :authorize, only: [:show, :add_pics, :destroy, :create_contact, :index]
 
     def index
-        contacts = @current_user.contacts.all
+        # contacts = @current_user.contacts.all
+        contacts = Contact.all
         render json: contacts, status: :ok
     end
 
@@ -18,17 +19,9 @@ class ContactsController < ApplicationController
     end
 
     def create_contact
-        pet = Pet.find_by(id: params[:pet_id])
-        if pet
+            pet = Pet.find(params[:pet_id])
             contact = pet.contacts.create!(contact_params)
-            if contact.valid?
-                render json: contact, status: :created
-            else
-                render json: {errors: ["Contact must have name at least.", "Phone number must be 10 numbers."]}, status: :unprocessable_entity
-            end
-        else
-            render json: {errors: ["Contact must be for selected Pet. Add Pet first if none."]}, status: :unprocessable_entity
-        end
+            render json: contact, status: :created
     end
 
     def update
@@ -70,7 +63,4 @@ class ContactsController < ApplicationController
         render json: {errors: "Not authorized."}, status: :unprocessable_entity
     end
 
-    def render_unprocessable_entity_response(invalid)
-        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
-    end
 end

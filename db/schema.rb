@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_07_041943) do
+ActiveRecord::Schema.define(version: 2023_10_10_014034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2023_10_07_041943) do
     t.string "description"
     t.string "picture"
     t.string "medical_needs"
-    t.integer "dob"
+    t.string "dob"
     t.string "notes"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2023_10_07_041943) do
     t.string "name"
     t.string "family_members"
     t.string "address"
-    t.integer "dob"
+    t.string "dob"
     t.bigint "phone_number"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
@@ -105,4 +105,6 @@ ActiveRecord::Schema.define(version: 2023_10_07_041943) do
   add_foreign_key "pet_contacts", "contacts"
   add_foreign_key "pet_contacts", "pets"
   add_foreign_key "pets", "users"
+  add_foreign_key "photos", "exhibits"
+  add_foreign_key "photos", "photographers"
 end

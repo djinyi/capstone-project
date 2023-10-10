@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // import { UserContext } from "./user/UserContext";
 import Pet from "./Pet"
+import { PetContext } from "./pet/PetContext";
 
-function Pets({ setPets, pets, addNewPet, deletePet }){
+function Pets(){
     const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
     const [medical_needs, setMedical_needs] = useState("");
@@ -10,11 +11,16 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
     const [dob, setDob] = useState("");
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
+    const {pets, setPets} = useContext(PetContext);
 
     function handleSubmit(e) {
         e.preventDefault();
+
         const formData = {name, breed, medical_needs, notes, dob, description}
         console.log(formData)
+        if(!Number.isInteger(parseInt(dob))){
+            setErrors(["Pet must have name", "DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+        } else {
         fetch(`/pets`, {
             method: "POST",
             headers: {
@@ -36,9 +42,20 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
         setMedical_needs("");
         setDob("");
         setDescription("");
+        }
+        
     }
 
     console.log(pets)
+
+    function addNewPet(newPet){
+        setPets([...pets, newPet])
+      }
+    
+      function deletePet(id){
+        let updatedPets = pets.filter((pet) => pet.id !== id)
+        setPets(updatedPets)
+      }
 
     function updatePets(data, id){
         console.log(data, id)
@@ -52,7 +69,7 @@ function Pets({ setPets, pets, addNewPet, deletePet }){
         setPets(list)
     }
 
-    let petList = pets.map((pet) => (
+    let petList = pets?.map((pet) => (
         <Pet
         key = {pet.id}
         id = {pet.id}

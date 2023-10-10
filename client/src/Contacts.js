@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Contact from "./Contact"
+import { PetContext } from "./pet/PetContext";
 
-function Contacts({ listContacts, pets, deleteContact, createContact }){
+function Contacts({ listContacts, deleteContact, createContact }){
     const [name, setName] = useState("");
     const [organization, setOrganization] = useState("");
     const [relationship, setRelationship] = useState("");
@@ -10,11 +11,16 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
     const [address, setAddress] = useState("");
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState([]);
-    const [pet_id, setPet_id] = useState([])
+    const [pet_id, setPet_id] = useState(0)
+    const { pets } = useContext(PetContext);
     console.log(listContacts)
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        if(pet_id < 1){
+        setErrors(["Contact must be associated to selected pet. Create Pet if none."])
+        } else {
         const formData = {name, organization, relationship, phone_number, email, address, notes}
         console.log(formData)
         fetch(`/${pet_id}}/contacts`, {
@@ -39,10 +45,12 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         setEmail("");
         setAddress("");
         setNotes("")
+        setErrors([])
+        }
     }
 
 
-    let contactList = listContacts.map((contact) => (
+    let contactList = listContacts?.map((contact) => (
         <Contact
         key = {contact.id}
         id = {contact.id}
@@ -56,7 +64,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
         />
     ))
 
-    let petsDropdown = pets.map((pet) => (
+    let petsDropdown = pets?.map((pet) => (
         <option value={pet.id}>{pet.name}</option>
     ))
 
@@ -66,10 +74,10 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
             <h1 class="text-3xl text-sky-500 text-center p-4">Contacts</h1>
             {contactList}
              <h3> Enter new contact info! </h3>
-             {/* <b class="text-red-500">{errors?.map((err) => (
+             <b class="text-red-500">{errors?.map((err) => (
             <ul key={err}>{err}</ul>
-          ))}</b> */}
-                       <b class="text-red-500">{errors}</b>
+          ))}</b>
+                       {/* <b class="text-red-500">{errors}</b> */}
          <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
             <input
@@ -130,7 +138,7 @@ function Contacts({ listContacts, pets, deleteContact, createContact }){
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Pet </label>
             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 onChange={e => setPet_id(e.target.value)} name="exhibit" id="exhibit">
-                <option value={pet_id}> Choose Pet </option>
+                <option value={0}> Choose Pet </option>
                 {petsDropdown}
             </select>
             <div class="relative"></div>

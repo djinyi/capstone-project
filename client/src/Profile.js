@@ -12,11 +12,11 @@ function Profile(){
     const [email, setEmail] = useState(user.email)
     const [address, setAddress] = useState(user.address)
 
-    let phoneNumberString = phone_number.toString().padStart(10, "0")
-    let phoneNumber = phoneNumberString.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
+    let phoneNumberString = phone_number?.toString().padStart(10, "0")
+    let phoneNumber = phoneNumberString?.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
-    let birthdayString = user.dob.toString().padStart(6, "0")
-    let birthday = birthdayString.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
+    let birthdayString = user.dob?.toString().padStart(6, "0")
+    let birthday = birthdayString?.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
 
     return(
         <div>

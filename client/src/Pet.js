@@ -10,7 +10,7 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
     const [newBreed, setNewBreed] = useState(breed)
     const [newMedical_needs, setNewMedical_needs] = useState(medical_needs)
     const [newNotes, setNewNotes] = useState(notes)
-    const [newDob, setNewDob] = useState(dob)
+    const [newDob, setNewDob] = useState(parseInt(dob))
     const [newDescription, setNewDescription] = useState(description)
     const [photos, setPhotos] = useState(images)
 

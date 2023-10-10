@@ -18,11 +18,10 @@ function SignUp({ setLoggingIn }) {
   
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(dob, phone_number)
 
-    if(dob.length != 6&& phone_number.length != 10){
-      setError("Must have username and password. Dob must be 6 numbers and phone number must be 10 numbers.")
-    } else {
+    if(!Number.isInteger(parseInt(dob))){
+      setErrors(["Must have unique username", "Must have password and matching password confirmration", "DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+  } else {
     fetch("/signup", {
       method: "POST",
       headers: {
@@ -54,7 +53,6 @@ function SignUp({ setLoggingIn }) {
     setPasswordConfirmation("");
     setError("")
   }
-
   }
 
   return (

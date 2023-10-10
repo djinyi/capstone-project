@@ -39,9 +39,7 @@ function LogIn({ setLoggingIn }) {
       <form class="w-full max-w-sm" onSubmit={handleSubmit}>
         <h3 class="text-3xl text-sky-500 text-center p-4">Login</h3>
         <p>
-          <b class="text-red-500">{errors?.map((err) => (
-            <ul key={err}>{err}</ul>
-          ))}</b>
+          <b class="text-red-500">{errors}</b>
         </p>
         <div class="md:flex md:items-center mb-6">
           <div class="md:w-1/3">
