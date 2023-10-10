@@ -20,12 +20,8 @@ class ChecklistsController < ApplicationController
 
     def destroy
         checklist = Checklist.find_by(id: params[:id])
-        if checklist
-            checklist.destroy
-            render json: {}, head: :no_content
-        else
-            not_authorized
-        end
+        checklist.destroy
+        render json: {}, head: :no_content
     end
 
     private

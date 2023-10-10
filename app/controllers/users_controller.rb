@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :show, :change, :index, :destroy]
+    skip_before_action :authorize, only: [:create]
 
     def create
         user = User.create(user_params)
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find(session[:user_id])
-        render json: user, include: ['pets', 'pets.contacts']
+        render json: user
     end
 
     def destroy
@@ -47,7 +47,4 @@ class UsersController < ApplicationController
         params.permit(:id, :username, :password, :password_confirmation, :name, :dob, :email, :phone_number, :address)
     end
 
-    def record_error
-        render json: {errors: "Password can't be blank, Username can't be blank, Username is too short (minimum is 2 characters)"}, status: :unprocessable_entity
-    end
 end

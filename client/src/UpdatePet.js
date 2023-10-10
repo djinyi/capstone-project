@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes, newMedical_needs, setNewMedical_needs, newBreed, setNewBreed, newDob, setNewDob, newDescription, setNewDescription }){
+function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes, newMedical_needs, setNewMedical_needs, newBreed, setNewBreed, newDescription, setNewDescription }){
     const [errors, setErrors] = useState([]);
     const [message, setMessage] = useState([]);
 
@@ -11,36 +11,35 @@ function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes,
     function handleSave(e){
     
         e.preventDefault();
-        
-                fetch(`/pets/${id}`, {
-                method: "PATCH",
-                headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: newName, 
-                    breed: newBreed, 
-                    medical_needs: newMedical_needs,
-                    notes: newNotes,
-                    dob: newDob,
-                    description: newDescription
-                }),
-            })
-            .then((r) => {
-            if(r.ok) {
-                r.json().then((updated) => {
-                    updatePets(updated, id)
-                    setErrors([])
-                    setMessage("Edit submitted.")
-                });
-            } else {
-                r.json().then((err) => {
-                    setErrors(err.errors)
-                    setMessage([])
-                });
-            }
-            });
-        }
+
+        fetch(`/pets/${id}`, {
+        method: "PATCH",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name: newName, 
+            breed: newBreed, 
+            medical_needs: newMedical_needs,
+            notes: newNotes,
+            description: newDescription
+        }),
+    })
+    .then((r) => {
+    if(r.ok) {
+        r.json().then((updated) => {
+            updatePets(updated, id)
+            setErrors([])
+            setMessage("Edit submitted.")
+        });
+    } else {
+        r.json().then((err) => {
+            setErrors(err.errors)
+            setMessage([])
+        });
+    }
+    });
+}
 
     return(
         <div>
@@ -69,12 +68,6 @@ function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes,
           value={newNotes}
           placeholder="Notes"
           onChange={(e) => handleChange(e, setNewNotes)}
-          showEditButton />
-          <input
-          name="textbox"
-          value={newDob}
-          placeholder="MMDDYY"
-          onChange={(e) => handleChange(e, setNewDob)}
           showEditButton />
           <input
           name="textbox"

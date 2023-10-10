@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:show, :destroy, :create_contact]
+    # skip_before_action :authorize, only: [:index, :destroy]
 
     def index
         pets = @current_user.pets.all.with_attached_images
@@ -9,12 +9,8 @@ class PetsController < ApplicationController
     end
 
     def show
-        pet = Pet.find(params[:id])
-        if pets
-            render json: pet, status: :ok
-        else
-            render_not_found_response
-        end
+        pet = find_pet
+        render json: pet, status: :ok
     end
 
     def create
@@ -23,13 +19,13 @@ class PetsController < ApplicationController
     end
 
     def pictures
-        pet = Pet.find_by(id: params[:id])
+        pet = find_pet
         images = rails_blob_path(pet.images)
         render json: {pet: pet.name, images: images}
     end
 
     def attach_picture
-        pet = Pet.find_by(id: params[:id])
+        pet = find_pet
         pet.images.attach(params[:images])
         render json: pet
     end
@@ -37,17 +33,13 @@ class PetsController < ApplicationController
 
     def update
         pet = find_pet
-        if pet
-            pet.update!(pet_params)
-            render json: pet, status: :ok
-        else
-            not_authorized
-        end
+        pet.update!(pet_params)
+        render json: pet, status: :ok
     end
 
     def destroy
-        # pet = find_pet
-        pet = Pet.find_by(id: params[:id])
+        pet = find_pet
+        # pet = Pet.find_by(id: params[:id])
         if pet
             pet.destroy
             render json: {}, head: :no_content
@@ -69,14 +61,6 @@ class PetsController < ApplicationController
 
     def find_pet
         @current_user.pets.find_by(id: params[:id])
-    end
-
-    def render_not_found_response
-        render json: {error: "Pet Not Found"}, status: :not_found
-    end
-    
-    def not_authorized
-        render json: {errors: "Not authorized."}, status: :unprocessable_entity
     end
 
     def contact_params

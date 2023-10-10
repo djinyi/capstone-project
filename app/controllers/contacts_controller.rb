@@ -1,47 +1,33 @@
 class ContactsController < ApplicationController
-    # rescue_from ActiveRecord::RecordNotFound, with: :render_unprocessable_entity_response
     wrap_parameters format: []
-    skip_before_action :authorize, only: [:show, :add_pics, :destroy, :create_contact, :index]
 
     def index
-        # contacts = @current_user.contacts.all
-        contacts = Contact.all
+        contacts = @current_user.contacts.all
+        # contacts = Contact.all
         render json: contacts, status: :ok
     end
 
     def show
         contact = find_contact
-        if Contact.user.match?(@current_user)
-            render json: contact, status: :ok
-        else
-            render_not_found_response
-        end
+        render json: contact, status: :ok
     end
 
     def create_contact
-            pet = Pet.find(params[:pet_id])
-            contact = pet.contacts.create!(contact_params)
-            render json: contact, status: :created
+        pet = Pet.find(params[:pet_id])
+        contact = pet.contacts.create!(contact_params)
+        render json: contact, status: :created
     end
 
-    def update
-        contact = find_contact
-        if contact
-            Contact.update!(contact_params)
-            render json: contact, status: :ok
-        else
-            not_authorized
-        end
-    end
+    # def update
+    #     contact = find_contact
+    #     Contact.update!(contact_params)
+    #     render json: contact, status: :ok
+    # end
 
     def destroy
         contact = Contact.find_by(id: params[:id])
-        if contact
-            contact.destroy
-            render json: {}, head: :no_content
-        else
-            not_authorized
-        end
+        contact.destroy
+        render json: {}, head: :no_content
     end
 
 
@@ -53,14 +39,6 @@ class ContactsController < ApplicationController
 
     def find_contact
         @current_user.contacts.find_by(id: params[:id])
-    end
-
-    def render_not_found_response
-        render json: {error: "Contact Not Found"}, status: :not_found
-    end
-    
-    def not_authorized
-        render json: {errors: "Not authorized."}, status: :unprocessable_entity
     end
 
 end
