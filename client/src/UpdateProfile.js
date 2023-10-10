@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./user/UserContext";
 
-function UpdateProfile({ id, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
+function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
     const [errors, setErrors] = useState([]);
     const [message, setMessage] = useState([]);
     const { user, setUser } = useContext(UserContext);
@@ -13,7 +13,6 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
     }
       
     function handleSave(e){
-    
     e.preventDefault();
     
             fetch(`/users/${id}`, {
@@ -22,7 +21,7 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
             "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                name, username, phone_number, email, address
+                name, username, phone_number, email, address, dob
             }),
         })
         .then((r) => {
@@ -49,29 +48,34 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
           <input
           name="textbox"
           value={name}
+          placeholder="Name"
           onChange={(e) => handleChange(e, setName)}
           showEditButton />
           <input
           name="textbox"
           value={username}
+          placeholder="Username"
           onChange={(e) => handleChange(e, setUsername)}
           showEditButton />
           <input
           name="textbox"
           value={phone_number}
+          placeholder="1231231234"
           onChange={(e) => handleChange(e, setPhone_number)}
           showEditButton />
           <input
           name="textbox"
           value={email}
+          placeholder="email@email.com"
           onChange={(e) => handleChange(e, setEmail)}
           showEditButton />
           <input
           name="textbox"
           value={address}
+          placeholder="Address"
           onChange={(e) => handleChange(e, setAddress)}
           showEditButton />
-          <button> Submit Edit</button>
+          <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Submit</button>
           </form>
           <b class="text-red-500">{errors?.map((err) => (
             <ul key={err}>{err}</ul>

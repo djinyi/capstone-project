@@ -26,7 +26,7 @@ function Profile(){
         <p><i>Email:</i> {email}</p>
         <p><i>Phone Number:</i> {phoneNumber}</p>
         <p><i>Address:</i> {address}</p>
-        {edit? <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdateProfile id={user.id} name={name} setName={setName} email={email} setEmail={setEmail} phone_number={phone_number} setPhone_number={setPhone_number} username={username} setUsername = {setUsername} address={address} setAddress={setAddress} />}
+        {edit? <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdateProfile id={user.id} dob={user.dob.padStart(6,"0")} name={name} setName={setName} email={email} setEmail={setEmail} phone_number={phone_number} setPhone_number={setPhone_number} username={username} setUsername = {setUsername} address={address} setAddress={setAddress} />}
         </div>
     )
 }

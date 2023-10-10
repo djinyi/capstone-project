@@ -48,31 +48,31 @@ function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes,
         <form onSubmit={handleSave}>
           <input
           name="textbox"
-        //   value={newName}
+          value={newName}
           placeholder="Name"
           onChange={(e) => handleChange(e, setNewName)}
           showEditButton />
           <input
           name="textbox"
-        //   value={newBreed}
+          value={newBreed}
           placeholder="Breed"
           onChange={(e) => handleChange(e, setNewBreed)}
           showEditButton />
           <input
           name="textbox"
-        //   value={newMedical_needs}
+          value={newMedical_needs}
           placeholder="Medical needs"
           onChange={(e) => handleChange(e, setNewMedical_needs)}
           showEditButton />
           <input
           name="textbox"
-        //   value={newNotes}
+          value={newNotes}
           placeholder="Notes"
           onChange={(e) => handleChange(e, setNewNotes)}
           showEditButton />
           <input
           name="textbox"
-        //   value={newDob}
+          value={newDob}
           placeholder="MMDDYY"
           onChange={(e) => handleChange(e, setNewDob)}
           showEditButton />

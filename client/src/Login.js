@@ -39,9 +39,9 @@ function LogIn({ setLoggingIn }) {
       <form class="w-full max-w-sm" onSubmit={handleSubmit}>
         <h3 class="text-3xl text-sky-500 text-center p-4">Login</h3>
         <p>
-          <b class="text-red-500">{errors}</b>
+          <b class="text-red-500 m-7 pb-5">{errors}</b>
         </p>
-        <div class="md:flex md:items-center mb-6">
+        <div class="md:flex md:items-center mb-6 mt-3">
           <div class="md:w-1/3">
         <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username </label>
         </div>

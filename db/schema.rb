@@ -105,6 +105,4 @@ ActiveRecord::Schema.define(version: 2023_10_10_014034) do
   add_foreign_key "pet_contacts", "contacts"
   add_foreign_key "pet_contacts", "pets"
   add_foreign_key "pets", "users"
-  add_foreign_key "photos", "exhibits"
-  add_foreign_key "photos", "photographers"
 end
