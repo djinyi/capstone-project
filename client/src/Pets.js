@@ -90,7 +90,7 @@ function Pets(){
     return(
         <div class="grid grid-cols-1">
             <div class="block">
-            <h1 class="text-3xl text-sky-500 text-center p-4">My Pets</h1>
+            <h1 class="text-3xl italic text-sky-700 text-center p-4">My Pets</h1>
             </div>
             <div class="block">
             {petList}

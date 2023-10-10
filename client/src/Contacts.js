@@ -71,7 +71,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
 
     return(
         <div>
-            <h1 class="text-3xl text-sky-500 text-center p-4">Contacts</h1>
+            <h1 class="text-3xl italic text-sky-700 text-center p-4">Contacts</h1>
             {contactList}
              <h3> Enter new contact info! </h3>
              <b class="text-red-500">{errors?.map((err) => (

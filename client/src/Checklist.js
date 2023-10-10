@@ -98,7 +98,7 @@ function deleteToDo(id){
 
     return(
         <div>
-        <h1 class="text-3xl text-sky-500 text-center p-4">Checklist</h1>
+        <h1 class="text-3xl italic text-sky-700 text-center p-4">Checklist</h1>
         <p>{content? " " :
         (checklist.map((check) => ( 
             <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>))) }</p>
