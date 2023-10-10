@@ -18,35 +18,16 @@ function App() {
   const {pets, setPets} = useContext(PetContext);
   const [loggingIn, setLoggingIn] = useState(false);
 
-  console.log(pets)
-
-
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user)
           setLoggingIn(true)
-          // fetchPets()
       })
     }});
 
   }, [loggingIn, setUser]);
-
-  // function fetchPets(){
-  //   fetch("/pets")
-  //     .then((r) => r.json())
-  //     .then((r) => setPets(r));
-  // };
-
-  // function addNewPet(newPet){
-  //   setPets([...pets, newPet])
-  // }
-
-  // function deletePet(id){
-  //   let updatedPets = pets.filter((pet) => pet.id !== id)
-  //   setPets(updatedPets)
-  // }
 
   function createContact(newContact, pet_id){
 
@@ -59,7 +40,6 @@ function App() {
       return pet
     })
     setPets(updatedPets)
-
   }
 
   function deleteContact(id){

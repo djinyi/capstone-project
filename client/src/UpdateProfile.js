@@ -6,8 +6,6 @@ function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_nu
     const [message, setMessage] = useState([]);
     const { setUser } = useContext(UserContext);
     
-    // console.log(user)
-
     function handleChange(e, setFn) {
         setFn(e.target.value)
     }

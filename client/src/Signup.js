@@ -20,7 +20,8 @@ function SignUp({ setLoggingIn }) {
     e.preventDefault();
 
     if(!Number.isInteger(parseInt(dob))){
-      setErrors(["Must have unique username", "Must have password and matching password confirmation", "Phone number must be 10 numbers", "DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+      // setErrors(["Must have unique username", "Must have password and matching password confirmation", "Phone number must be 10 numbers", "DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+      setErrors(["DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
   } else {
     fetch("/signup", {
       method: "POST",

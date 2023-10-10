@@ -13,7 +13,6 @@ function Contacts({ listContacts, deleteContact, createContact }){
     const [errors, setErrors] = useState([]);
     const [pet_id, setPet_id] = useState(0)
     const { pets } = useContext(PetContext);
-    console.log(listContacts)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -22,7 +21,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
         setErrors(["Contact must be associated to selected pet. Create Pet if none."])
         } else {
         const formData = {name, organization, relationship, phone_number, email, address, notes}
-        console.log(formData)
+        // console.log(formData)
         fetch(`/${pet_id}}/contacts`, {
             method: "POST",
             headers: {
