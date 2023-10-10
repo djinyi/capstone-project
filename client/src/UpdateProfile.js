@@ -15,14 +15,14 @@ function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_nu
     function handleSave(e){
     e.preventDefault();
     
-            fetch(`/users/${id}`, {
-            method: "PATCH",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name, username, phone_number, email, address, dob
-            }),
+        fetch(`/users/${id}`, {
+        method: "PATCH",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name, username, phone_number, email, address, dob
+        }),
         })
         .then((r) => {
         if(r.ok) {

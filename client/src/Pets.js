@@ -19,7 +19,7 @@ function Pets(){
         const formData = {name, breed, medical_needs, notes, dob, description}
         console.log(formData)
         if(!Number.isInteger(parseInt(dob))){
-            setErrors(["Pet must have name", "DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+            setErrors(["DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
         } else {
         fetch(`/pets`, {
             method: "POST",
