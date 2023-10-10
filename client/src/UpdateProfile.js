@@ -3,6 +3,7 @@ import { UserContext } from "./user/UserContext";
 
 function UpdateProfile({ id, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
     const [errors, setErrors] = useState([]);
+    const [message, setMessage] = useState([]);
     const { user, setUser } = useContext(UserContext);
     
     console.log(user)
@@ -26,9 +27,16 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
         })
         .then((r) => {
         if(r.ok) {
-            r.json().then((updated) => setUser(updated));
+            r.json().then((updated) => {
+                setUser(updated)
+                setErrors([])
+                setMessage("Edit submitted.")
+            });
         } else {
-            r.json().then((err) => setErrors(err.errors));
+            r.json().then((err) => {
+                setErrors(err.errors)
+                setMessage([])
+            });
         }
         });
     }
@@ -65,9 +73,10 @@ function UpdateProfile({ id, name, setName, username, setUsername, phone_number,
           showEditButton />
           <button> Submit Edit</button>
           </form>
-          <p>
-                <b>{errors}</b>
-          </p>
+          <b class="text-red-500">{errors?.map((err) => (
+            <ul key={err}>{err}</ul>
+          ))}</b>
+          <b class="text-green-700">{message}</b>
           </div>
     )
 }
