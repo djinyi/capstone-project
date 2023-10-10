@@ -45,14 +45,15 @@ function PetGallerySubmit({ id, setPhotos }){
             <h3> Submit a photo of your pet! (only .jpeg and .png files)</h3>
             <form onSubmit={handlePostSubmit}>
                 <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500"
                 type="file"
                 accept="image/png, image/jpeg"
                 onChange={(e) => setSelectedImage(e.target.files[0])} 
                 />
-                <button class="mr-3 my-2">Submit</button>
+                <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded">Submit</button>
 
             </form>
-            {errors}
+            <b class="text-red-500">{errors}</b>
 
         </div>
     )

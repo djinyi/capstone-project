@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes, newMedical_needs, setNewMedical_needs, newBreed, setNewBreed, newDob, setNewDob, newDescription, setNewDescription }){
     const [errors, setErrors] = useState([]);
+    const [message, setMessage] = useState([]);
 
     function handleChange(e, setFn) {
         setFn(e.target.value)
@@ -27,9 +28,16 @@ function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes,
             })
             .then((r) => {
             if(r.ok) {
-                r.json().then((updated) => updatePets(updated, id));
+                r.json().then((updated) => {
+                    updatePets(updated, id)
+                    setErrors([])
+                    setMessage("Edit submitted.")
+                });
             } else {
-                r.json().then((err) => setErrors(err.errors));
+                r.json().then((err) => {
+                    setErrors(err.errors)
+                    setMessage([])
+                });
             }
             });
         }
@@ -40,38 +48,47 @@ function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes,
         <form onSubmit={handleSave}>
           <input
           name="textbox"
-          value={newName}
+        //   value={newName}
+          placeholder="Name"
           onChange={(e) => handleChange(e, setNewName)}
           showEditButton />
           <input
           name="textbox"
-          value={newBreed}
+        //   value={newBreed}
+          placeholder="Breed"
           onChange={(e) => handleChange(e, setNewBreed)}
           showEditButton />
           <input
           name="textbox"
-          value={newMedical_needs}
+        //   value={newMedical_needs}
+          placeholder="Medical needs"
           onChange={(e) => handleChange(e, setNewMedical_needs)}
           showEditButton />
           <input
           name="textbox"
-          value={newNotes}
+        //   value={newNotes}
+          placeholder="Notes"
           onChange={(e) => handleChange(e, setNewNotes)}
           showEditButton />
           <input
           name="textbox"
-          value={newDob}
+        //   value={newDob}
+          placeholder="MMDDYY"
           onChange={(e) => handleChange(e, setNewDob)}
           showEditButton />
           <input
           name="textbox"
           value={newDescription}
+          placeholder="Description"
           onChange={(e) => handleChange(e, setNewDescription)}
           showEditButton />
-          <button> Submit Edit </button>
+          <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Submit </button>
           </form>
           <p>
-                <b>{errors}</b>
+          <b class="text-red-500">{errors?.map((err) => (
+            <ul key={err}>{err}</ul>
+          ))}</b>
+          <b class="text-green-700">{message}</b>
           </p>
 
         </div>

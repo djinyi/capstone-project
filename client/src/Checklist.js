@@ -39,6 +39,7 @@ function Checklist(){
             if(r.ok) {
                 r.json().then((newItem) => {
                     addToDo(newItem)
+                    setErrors([])
                 })
             } else {
                 r.json().then((err) => setErrors(err.error));
@@ -104,9 +105,9 @@ function deleteToDo(id){
         {/* <h3> add To-To </h3> */}
         <div class="block w-full max-w-lg p-10">
         <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
-        <p><b class="text-red-500">
+        <div class="mb-5"><b>
             {errors}
-        </b></p>
+        </b></div>
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> To Do </label>
             <input
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
