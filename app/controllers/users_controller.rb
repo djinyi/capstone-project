@@ -41,29 +41,11 @@ class UsersController < ApplicationController
         end
     end
 
-    # def change
-    #     user = User.find_by(id: params[:id])
-    #     pet = user.pets.create(pet_params)
-    #     if pet.valid?
-    #         render json: pet, status: :created
-    #     else
-    #         render json: { error: "Name can't be blank" }, status: :unprocessable_entity
-    #     end
-    # end
-
     private
 
     def user_params
         params.permit(:id, :username, :password, :password_confirmation, :name, :dob, :email, :phone_number, :address)
     end
-
-    # def pet_params
-    #     params.permit(:name, :breed, :description, :picture, :medical_needs, :dob, :notes)
-    # end
-
-    # def asuser_params
-    #     params.permit(:username, :name, :dob, :email, :phone_number, :address)
-    # end
 
     def record_error
         render json: {errors: "Password can't be blank, Username can't be blank, Username is too short (minimum is 2 characters)"}, status: :unprocessable_entity
