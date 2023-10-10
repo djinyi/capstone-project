@@ -41,49 +41,49 @@ function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_nu
 
     return(
         <div>
-        <h3 class="text-center text-gray-400"> Edit: </h3>
+        <h3 className="text-center text-gray-400"> Edit: </h3>
         <form onSubmit={handleSave}>
           <input
-          class="bg-gray-100 m-1"
+          className="bg-gray-100 m-1"
           name="textbox"
           value={name}
           placeholder="Name"
           onChange={(e) => handleChange(e, setName)}
           showEditButton />
           <input
-          class="bg-gray-100 m-1"
+          className="bg-gray-100 m-1"
           name="textbox"
           value={username}
           placeholder="Username"
           onChange={(e) => handleChange(e, setUsername)}
           showEditButton />
           <input
-          class="bg-gray-100 m-1"
+          className="bg-gray-100 m-1"
           name="textbox"
           value={phone_number}
           placeholder="1231231234"
           onChange={(e) => handleChange(e, setPhone_number)}
           showEditButton />
           <input
-          class="bg-gray-100 m-1"
+          className="bg-gray-100 m-1"
           name="textbox"
           value={email}
           placeholder="email@email.com"
           onChange={(e) => handleChange(e, setEmail)}
           showEditButton />
           <input
-          class="bg-gray-100 m-1"
+          className="bg-gray-100 m-1"
           name="textbox"
           value={address}
           placeholder="Address"
           onChange={(e) => handleChange(e, setAddress)}
           showEditButton />
-          <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Submit</button>
+          <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Submit</button>
           </form>
-          <b class="text-red-500">{errors?.map((err) => (
+          <b className="text-red-500">{errors?.map((err) => (
             <ul key={err}>{err}</ul>
           ))}</b>
-          <b class="text-green-700">{message}</b>
+          <b className="text-green-700">{message}</b>
           </div>
     )
 }

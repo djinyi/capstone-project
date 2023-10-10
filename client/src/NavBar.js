@@ -17,27 +17,27 @@ function NavBar({ setLoggingIn }) {
 
 
     return (
-        <nav class="flex flex-row items-center justify-center flex-wrap bg-white p-3">
-            <ul class="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/">
-                <p class="p-3 font-bold text-sky-500 hover:bg-sky-100 p-3">Home</p>
+        <nav className="flex flex-row items-center justify-center flex-wrap bg-white p-3">
+            <ul className="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/">
+                <p className="p-3 font-bold text-sky-500 hover:bg-sky-100 p-3">Home</p>
             </NavLink>
             </ul>
-            <ul class="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/profile">
-                <p class="p-3 text-sky-500 hover:bg-sky-100">Profile</p>
+            <ul className="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/profile">
+                <p className="p-3 text-sky-500 hover:bg-sky-100">Profile</p>
             </NavLink></ul>
-            <ul class="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/pets">
-                <p class="p-3 text-sky-500 hover:bg-sky-100">Pets</p>
+            <ul className="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/pets">
+                <p className="p-3 text-sky-500 hover:bg-sky-100">Pets</p>
             </NavLink></ul>
-            <ul class="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/contacts">
-                <p class="p-3 text-sky-500 hover:bg-sky-100">Contacts</p>
+            <ul className="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/contacts">
+                <p className="p-3 text-sky-500 hover:bg-sky-100">Contacts</p>
             </NavLink>
             </ul>
-            <ul class="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/checklist">
-                <p class="p-3 text-sky-500 hover:bg-sky-100">Checklist</p>
+            <ul className="float-left font-bold visited:bg-sky-600 mx-10"><NavLink exact to="/checklist">
+                <p className="p-3 text-sky-500 hover:bg-sky-100">Checklist</p>
             </NavLink>
             </ul>
-            <ul class="float-left font-bold visited:bg-sky-600 mx-10" onClick={handleLogoutClick}><NavLink exact to="/logout">
-                <p class="p-3 text-sky-500 hover:bg-sky-100">Logout</p>
+            <ul className="float-left font-bold visited:bg-sky-600 mx-10" onClick={handleLogoutClick}><NavLink exact to="/logout">
+                <p className="p-3 text-sky-500 hover:bg-sky-100">Logout</p>
             </NavLink></ul>
         </nav>
     )

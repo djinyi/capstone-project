@@ -20,7 +20,7 @@ function Contacts({ deleteContact, id, name, organization, relationship, phoneNu
     let phone_number = phoneNumberString?.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
     return(
-        <div class="p-4">
+        <div className="p-4">
             <p>Name: {name}</p>
             <p>Organization: {organization}</p>
             <p>Relationship: {relationship}</p>
@@ -28,7 +28,7 @@ function Contacts({ deleteContact, id, name, organization, relationship, phoneNu
             <p>Email: {email}</p>
             <p>Address: {address}</p>
             <p>Notes: {notes}</p>
-            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => handleDeleteClick()}> Delete </button>
+            <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => handleDeleteClick()}> Delete </button>
             <p>{errors}</p>
         </div>
     )

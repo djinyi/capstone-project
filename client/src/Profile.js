@@ -20,13 +20,13 @@ function Profile(){
 
     return(
         <div>
-        <h1 class="font-display text-3xl italic text-sky-700 text-center p-4">My Profile</h1>
+        <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">My Profile</h1>
         <p><i>Name:</i> {name}  (<b><i>{username}</i></b>)</p>
         <p><i>DOB:</i> {birthday}</p>
         <p><i>Email:</i> {email}</p>
         <p><i>Phone Number:</i> {phoneNumber}</p>
         <p><i>Address:</i> {address}</p>
-        {edit? <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdateProfile id={user.id} dob={user.dob.padStart(6,"0")} name={name} setName={setName} email={email} setEmail={setEmail} phone_number={phone_number} setPhone_number={setPhone_number} username={username} setUsername = {setUsername} address={address} setAddress={setAddress} />}
+        {edit? <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdateProfile id={user.id} dob={user.dob.padStart(6,"0")} name={name} setName={setName} email={email} setEmail={setEmail} phone_number={phone_number} setPhone_number={setPhone_number} username={username} setUsername = {setUsername} address={address} setAddress={setAddress} />}
         </div>
     )
 }

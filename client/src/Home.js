@@ -7,7 +7,7 @@ function Home(){
 
     return(
         <div>
-            <h1 class="text-center text-xl m-6">Welcome, <b>{user.name}</b>!</h1>
+            <h1 className="text-center text-xl m-6">Welcome, <b>{user.name}</b>!</h1>
         </div>
     )
 }

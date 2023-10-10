@@ -10,14 +10,14 @@ function Welcome({ loggingIn, setLoggingIn}){
                 <>
                     <Login loggingIn={loggingIn} setLoggingIn={setLoggingIn}/>
                     <p>Don't have an account?
-                    <button class="italic m-1" onClick={() => setShowLogin(false)}>Sign Up</button>
+                    <button className="italic m-1" onClick={() => setShowLogin(false)}>Sign Up</button>
                     </p>
                 </>
             ) : (
                 <>
                     <Signup loggingIn={loggingIn} setLoggingIn={setLoggingIn}/>
                     <p>Already have an account? 
-                    <button class="italic m-1" onClick={() => setShowLogin(true)}>Log In</button>
+                    <button className="italic m-1" onClick={() => setShowLogin(true)}>Log In</button>
                     </p>
                 </>
             )}

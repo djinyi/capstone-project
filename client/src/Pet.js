@@ -31,19 +31,19 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
     let birthday = birthdayString?.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
 
     return(
-        <div class="p-6">
-            <p><i>Name: </i> <b class="font-semi-bold">{newName}</b></p>
+        <div className="p-6">
+            <p><i>Name: </i> <b className="font-semi-bold">{newName}</b></p>
             <p><i>Breed: </i>{newBreed}</p>
             <p><i>Description: </i>{newDescription}</p>
             <p><i>Medical Needs: </i>{newMedical_needs}</p>
             <p><i>Notes: </i>{newNotes}</p>
             <p><i>Date of Birth: </i>{birthday}</p>
             <p>
-            {edit? <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet updatePets={updatePets} id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDescription={newDescription} setNewDescription={setNewDescription} />}
-            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 my-2 rounded" onClick={handleDeleteClick}> Delete </button>
+            {edit? <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet updatePets={updatePets} id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDescription={newDescription} setNewDescription={setNewDescription} />}
+            <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 my-2 rounded" onClick={handleDeleteClick}> Delete </button>
             </p>
             <p></p>
-            <b class="text-red-500">{errors?.map((err) => (
+            <b className="text-red-500">{errors?.map((err) => (
             <ul key={err}>{err}</ul>
           ))}</b>
             <PetGallerySubmit id={id} setPhotos={setPhotos} />
@@ -53,9 +53,9 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
               setPhotos((photos) => {
               return photos.filter((photo, i) => i !== index);
             })}>x</button>
-            <img class="h-64" src={photo} alt=" "/> </div>))) :
+            <img className="h-64" src={photo} alt=" "/> </div>))) :
 
-            <img class="h-64" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
+            <img className="h-64" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
             }
     
         </div>

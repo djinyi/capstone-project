@@ -14,7 +14,7 @@ import { PetContext } from "./pet/PetContext";
 
 
 function App() {
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const {pets, setPets} = useContext(PetContext);
   const [loggingIn, setLoggingIn] = useState(false);
 
@@ -66,9 +66,9 @@ function App() {
 
 
   return (
-    <div class="font-serif">
+    <div className="font-serif">
       <Header />
-      {!loggingIn ? (
+      {!user ? (
         <main>
           <Welcome loggingIn={loggingIn} setLoggingIn={setLoggingIn} />
         </main>

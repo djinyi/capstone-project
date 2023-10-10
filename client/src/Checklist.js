@@ -76,25 +76,25 @@ function deleteToDo(id){
 
     return(
         <div>
-        <h1 class="font-display text-3xl italic text-sky-700 text-center p-4">Checklist</h1>
+        <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">Checklist</h1>
         <p>{checklist?.map((check) => ( 
             <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>)) }</p>
-        <div class="block w-full max-w-lg p-10">
-        <form class="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
-        <div class="mb-5">
-            <b class="text-red-500">{errors?.map((err) => (
+        <div className="block w-full max-w-lg p-10">
+        <form className="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
+        <div className="mb-5">
+            <b className="text-red-500">{errors?.map((err) => (
             <ul key={err}>{err}</ul>
           ))}</b>
         </div>
-            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> To Do </label>
+            <label htmlFor="to_do" className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> To Do </label>
             <input
-            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             type="text"
             id="to_do"
             value={toDo}
             onChange={e => setToDo(e.target.value)}
             />
-            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit"> Submit </button>
+            <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit"> Submit </button>
             </form>
         </div>
 

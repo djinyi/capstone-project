@@ -58,19 +58,19 @@ function SignUp({ setLoggingIn }) {
 
   return (
     <div>
-      <form class="w-full max-w-sm" onSubmit={handleSubmit}>
-        <h3 class="text-3xl text-sky-500 text-center p-4">Sign Up</h3>
-        <b class="text-red-500 m-7 pb-5">{errors?.map((err) => (
+      <form className="w-full max-w-sm" onSubmit={handleSubmit}>
+        <h3 className="text-3xl text-sky-500 text-center p-4">Sign Up</h3>
+        <b className="text-red-500 m-7 pb-5">{errors?.map((err) => (
             <ul key={err}>{err}</ul>
           ))}</b>
-        <b class="text-red-500">{error}</b>
-        <div class="md:flex md:items-center mb-6 pt-5">
-          <div class="md:w-1/3">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username </label>
+        <b className="text-red-500">{error}</b>
+        <div className="md:flex md:items-center mb-6 pt-5">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="text"
               id="username"
               autoComplete="off"
@@ -79,13 +79,13 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password </label>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="password"
               id="password"
               value={password}
@@ -94,13 +94,13 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password Confirmation </label>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password Confirmation </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="password"
               id="password_confirmation"
               value={passwordConfirmation}
@@ -110,13 +110,13 @@ function SignUp({ setLoggingIn }) {
           </div>
         </div>
         <p>More about yourself...</p>
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Name </label>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Name </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="name"
               id="name"
               value={name}
@@ -125,13 +125,13 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="phone_number"> Phone Number </label>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="phone_number"> Phone Number </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="phone_number"
               id="phone_number"
               value={phone_number}
@@ -141,14 +141,14 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
 
-          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="email"> Email </label>
+          <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="email"> Email </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="email"
               id="email"
               value={email}
@@ -157,13 +157,13 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="address"> Address </label>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="address"> Address </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="address"
               id="address"
               value={address}
@@ -172,13 +172,13 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div class="md:flex md:items-center mb-6">
-          <div class="md:w-1/3">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="dob"> DOB </label>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="dob"> DOB </label>
           </div>
-          <div class="md:w-2/3">
+          <div className="md:w-2/3">
             <input
-              class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               type="dob"
               id="dob"
               value={dob}
@@ -188,9 +188,9 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div class="md:w-1/3"></div>
-          <div class="md:w-2/3">
-            <button class="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit">Sign Up</button>
+        <div className="md:w-1/3"></div>
+          <div className="md:w-2/3">
+            <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit">Sign Up</button>
           </div>
 
       </form>
