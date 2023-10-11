@@ -79,7 +79,7 @@ function deleteToDo(id){
         <div>
         <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">Checklist</h1>
         <p>{checklist?.map((check) => ( 
-            <li key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>)) }</p>
+            <li className="mx-6" key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>)) }</p>
         <div className="block w-full max-w-lg p-10">
         <form className="block w-full max-w-lg p-10" onSubmit={handleSubmit}>
         <div className="mb-5">

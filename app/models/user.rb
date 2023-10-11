@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true, length: { in: 2..15 }
     validates :phone_number, length: { is:10 }, numericality: true
+    validates :birthday, comparison: { less_than: Date.today }
     validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
 end
 
