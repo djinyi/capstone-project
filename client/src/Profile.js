@@ -26,7 +26,7 @@ function Profile(){
     } 
 
     return(
-        <div>
+        <div className="mx-6">
         <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">My Profile</h1>
         <p><i>Name:</i> {name}  (<b><i>{username}</i></b>)</p>
         <p><i>DOB:</i> {birth? dob:" "}</p>

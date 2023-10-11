@@ -49,7 +49,6 @@ function SignUp({ setLoggingIn }) {
     setPassword("");
     setPasswordConfirmation("");
     setError("")
-  // }
   }
 
   return (
@@ -57,7 +56,7 @@ function SignUp({ setLoggingIn }) {
       <form className="w-full max-w-sm" onSubmit={handleSubmit}>
         <h3 className="text-3xl text-sky-500 text-center p-4">Sign Up</h3>
         <b className="text-red-500 m-7 pb-5">{errors?.map((err) => (
-          <ul key={err}>{err}</ul>
+          <ul className="mx-5" key={err}>{err}</ul>
           ))}</b>
         <b className="text-red-500">{error}</b>
         <p class="mx-5 text-gray-400">*required fields</p>
@@ -106,7 +105,7 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <p>More about yourself...</p>
+        <p className="m-6">More about yourself...</p>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Name </label>
@@ -187,7 +186,7 @@ function SignUp({ setLoggingIn }) {
         </div>
         <div className="md:w-1/3"></div>
           <div className="md:w-2/3">
-            <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit">Sign Up</button>
+            <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 mx-5 rounded" type="submit">Sign Up</button>
           </div>
 
       </form>
