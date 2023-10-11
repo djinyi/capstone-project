@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "./user/UserContext";
+import { Link } from "react-router-dom";
 
 function Checklist(){
     const { setUser } = useContext(UserContext);
@@ -96,6 +97,11 @@ function deleteToDo(id){
             />
             <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit"> Submit </button>
             </form>
+
+            <div>
+                <p className="p-5">Check out our resources:</p>
+                <li><Link className="text-sky-700" to="https://www.aspca.org/sites/default/files/blog_disaster-prep_090220_info.png">ASPCA Checklist Recommendations for Emergency Situations</Link></li>
+            </div>
         </div>
 
         </div>
