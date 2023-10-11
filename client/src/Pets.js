@@ -8,7 +8,6 @@ function Pets(){
     const [breed, setBreed] = useState("");
     const [medical_needs, setMedical_needs] = useState("");
     const [notes, setNotes] = useState("");
-    const [dob, setDob] = useState("");
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
     const {pets, setPets} = useContext(PetContext);
@@ -16,11 +15,11 @@ function Pets(){
     function handleSubmit(e) {
         e.preventDefault();
 
-        const formData = {name, breed, medical_needs, notes, dob, description}
+        const formData = {name, breed, medical_needs, notes, description}
         console.log(formData)
-        if(!Number.isInteger(parseInt(dob))){
-            setErrors(["DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
-        } else {
+        // if(!Number.isInteger(parseInt(birthday))){
+        //     setErrors(["DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+        // } else {
         fetch(`/pets`, {
             method: "POST",
             headers: {
@@ -43,9 +42,8 @@ function Pets(){
         setBreed("");
         setNotes("");
         setMedical_needs("");
-        setDob("");
         setDescription("");
-        }
+        // }
         
     }
 
@@ -77,7 +75,6 @@ function Pets(){
         name = {pet.name}
         breed = {pet.breed}
         description = {pet.description}
-        dob = {pet.dob}
         medical_needs = {pet.medical_needs}
         notes = {pet.notes}
         contacts = {pet.contacts}
@@ -146,16 +143,6 @@ function Pets(){
                 id="description"
                 value={notes}
                 onChange={e => setNotes(e.target.value)}
-                /> 
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> DoB* </label>
-                <input
-                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                
-                type="text"
-                id="dob"
-                placeholder="MMDDYY"
-                value={dob}
-                onChange={e => setDob(e.target.value)}
                 /> 
                 <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit"> Submit </button>
                 </form>

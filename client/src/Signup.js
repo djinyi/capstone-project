@@ -10,7 +10,7 @@ function SignUp({ setLoggingIn }) {
   const [phone_number, setPhone_number] = useState([]);
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [dob, setDob] = useState([]);
+  const [birthday, setBirthday] = useState("");
   const [errors, setErrors] = useState([]);
   const [error, setError] = useState([]);
   const { setUser } = useContext(UserContext);
@@ -19,10 +19,10 @@ function SignUp({ setLoggingIn }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if(!Number.isInteger(parseInt(dob))){
-      // setErrors(["Must have unique username", "Must have password and matching password confirmation", "Phone number must be 10 numbers", "DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
-      setErrors(["DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
-  } else {
+  //   if(!Number.isInteger(parseInt(birthday))){
+  //     // setErrors(["Must have unique username", "Must have password and matching password confirmation", "Phone number must be 10 numbers", "birthday must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+  //     setErrors(["birthday must be must be 6 numbers, eg. 010100 for January 1st 2000"])
+  // } else {
     fetch("/signup", {
       method: "POST",
       headers: {
@@ -34,7 +34,7 @@ function SignUp({ setLoggingIn }) {
         password_confirmation: passwordConfirmation,
         name,
         phone_number,
-        dob,
+        birthday,
         email,
         address
       }),
@@ -53,7 +53,7 @@ function SignUp({ setLoggingIn }) {
     setPassword("");
     setPasswordConfirmation("");
     setError("")
-  }
+  // }
   }
 
   return (
@@ -175,17 +175,17 @@ function SignUp({ setLoggingIn }) {
         </div>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="dob"> DOB* </label>
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="birthday"> birthday* </label>
           </div>
           <div className="md:w-2/3">
             <input
               className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              type="dob"
-              id="dob"
-              value={dob}
-              placeholder="MMDDYY"
-              onChange={(e) => setDob(e.target.value)}
-              autoComplete="dob"
+              type="birthday"
+              id="birthday"
+              value={birthday}
+              placeholder="MM/DD/YYYY"
+              onChange={(e) => setBirthday(e.target.value)}
+              autoComplete="birthday"
             />
           </div>
         </div>

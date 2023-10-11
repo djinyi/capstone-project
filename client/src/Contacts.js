@@ -71,6 +71,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
     return(
         <div>
             <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">Contacts</h1>
+            {/* border-2 border-light-blue-500 border-opacity-25 bg-sky-100 */}
             {contactList}
             <div className="mx-5">
              <b className="text-red-500">{errors?.map((err) => (

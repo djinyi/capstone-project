@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./user/UserContext";
 
-function UpdateProfile({ edit, setEdit, id, dob, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
+function UpdateProfile({ edit, setEdit, id, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
     const [errors, setErrors] = useState([]);
     const [message, setMessage] = useState([]);
     const { setUser } = useContext(UserContext);
@@ -19,7 +19,7 @@ function UpdateProfile({ edit, setEdit, id, dob, name, setName, username, setUse
         "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            name, username, phone_number, email, address, dob
+            name, username, phone_number, email, address
         }),
         })
         .then((r) => {

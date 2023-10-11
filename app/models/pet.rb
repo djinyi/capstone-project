@@ -5,7 +5,7 @@ class Pet < ApplicationRecord
   has_many_attached :images
 
   validates :name, presence: true, length: { in: 1..15 }
-  validates :dob, presence: true, length: { is:6, message: "must be 6 numbers, eg. 010100 for January 1st 2000" }
+  # validates :dob, presence: true, length: { is:6, message: "must be 6 numbers, eg. 010100 for January 1st 2000" }
 
   def image_urls
     if images.attached?
