@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "./user/UserContext";
+import { Link } from "react-router-dom";
 // import './input.css';
 
 function Home(){
@@ -12,9 +13,12 @@ function Home(){
             <div className="text-left mx-20">
             <img className="object-contain float-right border-2 border-sky-100 h-64 mx-8 my-5" src="https://i.imgur.com/tUIojHS.png" />
             <p className="my-6">Here are a few things you can do in preparation of man made and natural disasters!</p>
-            <p className="my-6">Create a list of your pets and include as much information about them. This is so in the event of being separated from your pets, you have proper ID to claim them as well as crucial information like medicaal needs and details you must keep in mind.</p>
-            <p className="my-6">Compile your list of contacts! We recommend collecting the contact information of your veternarians, designated fosters, petsitters, breeders, neighbors, and your local pet shelters. </p>
-            <p className="my-6">Curate your own checklist for your to-dos depending on your personal situation. Consider your location, the number and types of animals you have, and the type of disaster.</p>
+            <Link className="text-sky-700 text-center underline" to="/pets">My Pets</Link>
+            <p className="my-6">Create a roster of your pets. Fill out as much information about them and include pictures. This is so that in the event of being separated from your pets, you have proper ID to claim them as well as crucial information like their medical needs, diet, and feeding schedules.</p>
+            <Link className="text-sky-700 text-center underline" to="/contacts">My Contacts</Link>
+            <p className="my-6">Build your contacts. We recommend collecting the contact information of your veterinarians, designated fosters, petsitters, breeders, neighbors, and your local pet shelters. </p>
+            <Link className="text-sky-700 text-center underline" to="/checklist">My Checklist</Link>
+            <p className="my-6">Curate your own checklist for your to-dos depending on your personal situation. Consider your geographical location, the number and types of animals you have, and the type of disaster. Check out our list of resources from ASPCA, Red Cross, and more.</p>
             </div>
             </div>
         </div>

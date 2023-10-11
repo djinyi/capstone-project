@@ -97,13 +97,17 @@ function deleteToDo(id){
             />
             <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit"> Submit </button>
             </form>
-
-            <div>
-                <p className="p-5">Check out our resources:</p>
-                <li><Link className="text-sky-700" to="https://www.aspca.org/sites/default/files/blog_disaster-prep_090220_info.png">ASPCA Checklist Recommendations for Emergency Situations</Link></li>
-            </div>
         </div>
 
+            <div>
+                <p className="mx-6">Check out our resources:</p>
+                <p><Link className="text-sky-700 mx-6" to="https://www.aspca.org/sites/default/files/blog_disaster-prep_090220_info.png">ASPCA Checklist Recommendations for Emergency Situations</Link></p>
+                <p><Link className="text-sky-700 mx-6" to="https://www.aspca.org/pet-care/general-pet-care/disaster-preparedness">ASPCA Extra Considerations for Checklist</Link></p>
+                <p><Link className="text-sky-700 mx-6" to="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/pet-disaster-preparedness.html">Red Cross Pet Disaster Preparedness</Link></p>
+                <p><Link className="text-sky-700 mx-6" to="https://www.ready.gov/pets">Ready.gov Pet Preparation Plan </Link></p>
+                <p><Link className="text-sky-700 mx-6" to="https://www.humanesociety.org/resources/pet-disaster-preparedness">The Humane Society Pet Preparedness </Link></p>
+                <p><Link className="text-sky-700 mx-6" to="https://www.cdc.gov/healthypets/keeping-pets-and-people-healthy/emergencies.html">CDC Pet Safety in Emergencies </Link></p>
+            </div>
         </div>
     )
 }

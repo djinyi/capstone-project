@@ -8,10 +8,20 @@ function PetGallerySubmit({ id }){
     useEffect(() => {
         fetch(`/pets/${id}`).then((r) => {
           if (r.ok) {
-            r.json().then((r) => setPhotos(r.image_urls));
+            r.json().then((r) => setPic(r));
+          } else {
+            r.json().then((err) => setErrors(err.errors))
           }
         });
       }, []);
+
+      function setPic(r){
+        if(r!==null){
+        setPhotos(r.image_urls)
+        } else {
+            console.log("hi")
+        }
+      }
 
     function handlePostSubmit(e) {
         console.log("pic in")
