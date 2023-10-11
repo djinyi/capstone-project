@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function PetGallerySubmit({ id, setPhotos }){
+function PetGallerySubmit({ id }){
     const [selectedImage, setSelectedImage] = useState(null)
     const [errors, setErrors] = useState([]);
+    const [photos, setPhotos] = useState([]);
+
+    useEffect(() => {
+        fetch(`/pets/${id}`).then((r) => {
+          if (r.ok) {
+            r.json().then((r) => setPhotos(r.image_urls));
+          }
+        });
+      }, []);
 
     function handlePostSubmit(e) {
         console.log("pic in")
@@ -25,14 +34,15 @@ function PetGallerySubmit({ id, setPhotos }){
             if (r.ok){
                 r.json().then((r) => {
                     setPhotos(r.image_urls)
+                    setErrors([])
                 })
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
         })}
-
-
     }
+
+
 
     return(
         <div>
@@ -48,6 +58,16 @@ function PetGallerySubmit({ id, setPhotos }){
 
             </form>
             <b className="text-red-500">{errors}</b>
+
+            {photos? (photos.map ((photo, index) => (
+            <div key={index}>
+            <button onClick={() =>
+              setPhotos((photos) => {
+              return photos.filter((photo, i) => i !== index);
+            })}>x</button>
+            <img className="h-64" src={photo} alt=" "/> </div>))) :
+            <img className="h-64" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
+            }
 
         </div>
     )

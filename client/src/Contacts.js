@@ -78,8 +78,9 @@ function Contacts({ listContacts, deleteContact, createContact }){
                  ))}</b>
             </div>
             <h3 className="font-semibold text-gray-600 mx-5"> Enter new contact info! </h3>
+            <p class="mx-5 text-gray-400">*required fields</p>
          <form className="block w-full max-w-lg p-5" onSubmit={handleSubmit}>
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name* </label>
             <input
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             type="text"
@@ -119,7 +120,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
             value={email}
             onChange={e => setEmail(e.target.value)}
             /> 
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Phone Number </label>
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Phone Number* </label>
             <input
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             type="text"
@@ -135,7 +136,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
             value={notes}
             onChange={e => setNotes(e.target.value)}
             /> 
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Pet </label>
+            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Pet* </label>
             <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 onChange={e => setPet_id(e.target.value)} name="exhibit" id="exhibit">
                 <option value={0}> Choose Pet </option>

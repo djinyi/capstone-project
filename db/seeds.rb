@@ -5,10 +5,6 @@ puts "🌱 Seeding spices..."
 # Contact.destroy_all
 # Checklist.destroy_all
 
-# User.create(username: "Lunis Loon", password: "password")
-# User.create(username: "Miles Razorbeak", password: "password")
-# User.create(username: "Kylo the Seedy", password: "password")
-
 # User.create(username: "Lunis Loon", password: "password", name: "Lunis Loon", family_members: ["FeatherTip", "Sticks"], address: "100 Birb St. Flagstaff, AZ 86005", dob: 01012020, phone_number: 9281234567, email: "troublebubble@birbmail.com")
 # User.create(username: "Miles Razorbeak", password: "password", name: "Miles Razorbeak", family_members: ["Rio"], address: "101 Birb St. Flagstaff, AZ 86005", dob: 01012020, phone_number: 9282345678, email: "resplendentfeather@birbmail.com")
 # User.create(username: "Kylo the Seedy", password: "password", name: "Kylo the Seedy", family_members: ["Safflower", "Sunflower"], address: "102 Birb St. Flagstaff, AZ 86005", dob: 01012020, phone_number: 9283456789, email: "seed4life@birbmail.com")

@@ -82,7 +82,6 @@ function Pets(){
         notes = {pet.notes}
         contacts = {pet.contacts}
         deletePet={deletePet}
-        images={pet.image_urls}
         updatePets={updatePets}
         />
     ))
@@ -102,8 +101,9 @@ function Pets(){
                 ))}</b></p>
             </div>
             <h3 className="font-semibold text-gray-600 mx-5"> Enter new pet info! </h3>
+            <p class="mx-5 text-gray-400">*required fields</p>
             <form className="block w-full max-w-lg p-5" onSubmit={handleSubmit}>
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name* </label>
                 <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 type="text"
@@ -147,7 +147,7 @@ function Pets(){
                 value={notes}
                 onChange={e => setNotes(e.target.value)}
                 /> 
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> DoB </label>
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> DoB* </label>
                 <input
                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import UpdatePet from "./UpdatePet";
 import PetGallerySubmit from "./PetGallerySubmit";
 
-function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, description, contacts, deletePet, images }){
+function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, description, deletePet }){
     const [errors, setErrors] = useState([]);
     const [edit, setEdit] = useState(true);
     const [newName, setNewName] = useState(name)
@@ -12,7 +12,7 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
     const [newNotes, setNewNotes] = useState(notes)
     const [newDob, setNewDob] = useState(parseInt(dob))
     const [newDescription, setNewDescription] = useState(description)
-    const [photos, setPhotos] = useState(images)
+    // const [photos, setPhotos] = useState(images)
 
     function handleDeleteClick() {
         fetch(`/pets/${id}`, {
@@ -46,17 +46,8 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
             <b className="text-red-500">{errors?.map((err) => (
             <ul key={err}>{err}</ul>
           ))}</b>
-            <PetGallerySubmit id={id} setPhotos={setPhotos} />
-            {photos? (photos.map ((photo, index) => (
-            <div key={index}>
-            <button onClick={() =>
-              setPhotos((photos) => {
-              return photos.filter((photo, i) => i !== index);
-            })}>x</button>
-            <img className="h-64" src={photo} alt=" "/> </div>))) :
+            <PetGallerySubmit id={id}/>
 
-            <img className="h-64" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
-            }
     
         </div>
 

@@ -61,12 +61,13 @@ function SignUp({ setLoggingIn }) {
       <form className="w-full max-w-sm" onSubmit={handleSubmit}>
         <h3 className="text-3xl text-sky-500 text-center p-4">Sign Up</h3>
         <b className="text-red-500 m-7 pb-5">{errors?.map((err) => (
-            <ul key={err}>{err}</ul>
+          <ul key={err}>{err}</ul>
           ))}</b>
         <b className="text-red-500">{error}</b>
+        <p class="mx-5 text-gray-400">*required fields</p>
         <div className="md:flex md:items-center mb-6 pt-5">
           <div className="md:w-1/3">
-            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username </label>
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username* </label>
           </div>
           <div className="md:w-2/3">
             <input
@@ -81,7 +82,7 @@ function SignUp({ setLoggingIn }) {
         </div>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password </label>
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password* </label>
           </div>
           <div className="md:w-2/3">
             <input
@@ -96,7 +97,7 @@ function SignUp({ setLoggingIn }) {
         </div>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password Confirmation </label>
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="password"> Password Confirmation* </label>
           </div>
           <div className="md:w-2/3">
             <input
@@ -127,7 +128,7 @@ function SignUp({ setLoggingIn }) {
         </div>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="phone_number"> Phone Number </label>
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="phone_number"> Phone Number* </label>
           </div>
           <div className="md:w-2/3">
             <input
@@ -144,7 +145,7 @@ function SignUp({ setLoggingIn }) {
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
 
-          <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="email"> Email </label>
+          <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="email"> Email* </label>
           </div>
           <div className="md:w-2/3">
             <input
@@ -174,7 +175,7 @@ function SignUp({ setLoggingIn }) {
         </div>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="dob"> DOB </label>
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="dob"> DOB* </label>
           </div>
           <div className="md:w-2/3">
             <input
