@@ -59,15 +59,16 @@ function PetGallerySubmit({ id }){
             </form>
             <b className="text-red-500">{errors}</b>
 
-            {photos? (photos.map ((photo, index) => (
+            {photos?.map ((photo, index) => (
             <div key={index}>
             <button onClick={() =>
               setPhotos((photos) => {
               return photos.filter((photo, i) => i !== index);
             })}>x</button>
-            <img className="h-64" src={photo} alt=" "/> </div>))) :
-            <img className="h-64" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
-            }
+            <img className="h-64" src={photo} alt=" "/> </div>))}
+            {/* // :
+            // <img className="h-64" src="https://i.imgur.com/GekBpGO.jpg" alt=" "/>
+            // } */}
 
         </div>
     )
