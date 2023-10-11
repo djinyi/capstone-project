@@ -19,10 +19,6 @@ function SignUp({ setLoggingIn }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-  //   if(!Number.isInteger(parseInt(birthday))){
-  //     // setErrors(["Must have unique username", "Must have password and matching password confirmation", "Phone number must be 10 numbers", "birthday must be must be 6 numbers, eg. 010100 for January 1st 2000"])
-  //     setErrors(["birthday must be must be 6 numbers, eg. 010100 for January 1st 2000"])
-  // } else {
     fetch("/signup", {
       method: "POST",
       headers: {
@@ -175,7 +171,7 @@ function SignUp({ setLoggingIn }) {
         </div>
         <div className="md:flex md:items-center mb-6">
           <div className="md:w-1/3">
-            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="birthday"> birthday* </label>
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="birthday"> DoB </label>
           </div>
           <div className="md:w-2/3">
             <input
