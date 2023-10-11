@@ -39,7 +39,7 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, dob, descripti
             <p><i>Notes: </i>{newNotes}</p>
             <p><i>Date of Birth: </i>{birthday}</p>
             <p>
-            {edit? <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet updatePets={updatePets} id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDescription={newDescription} setNewDescription={setNewDescription} />}
+            {edit? <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" onClick={() => setEdit(edit => !edit)}> Edit</button> : <UpdatePet edit={edit} setEdit={setEdit} updatePets={updatePets} id={id} newName={newName} setNewName={setNewName} newNotes={newNotes} setNewNotes={setNewNotes} newMedical_needs={newMedical_needs} setNewMedical_needs={setNewMedical_needs} newBreed={newBreed} setNewBreed = {setNewBreed} newDescription={newDescription} setNewDescription={setNewDescription} />}
             <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 my-2 rounded" onClick={handleDeleteClick}> Delete </button>
             </p>
             <p></p>

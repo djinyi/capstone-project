@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes, newMedical_needs, setNewMedical_needs, newBreed, setNewBreed, newDescription, setNewDescription }){
+function UpdatePet({ edit, setEdit, updatePets, id, newName, setNewName, newNotes, setNewNotes, newMedical_needs, setNewMedical_needs, newBreed, setNewBreed, newDescription, setNewDescription }){
     const [errors, setErrors] = useState([]);
     const [message, setMessage] = useState([]);
 
@@ -80,6 +80,7 @@ function UpdatePet({ updatePets, id, newName, setNewName, newNotes, setNewNotes,
           placeholder="Description"
           onChange={(e) => handleChange(e, setNewDescription)}
           showEditButton />
+          <button onClick={() => setEdit(edit => !edit)} className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Cancel </button>
           <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Submit </button>
           </form>
           <p>

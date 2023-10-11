@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./user/UserContext";
 
-function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
+function UpdateProfile({ edit, setEdit, id, dob, name, setName, username, setUsername, phone_number, setPhone_number, email, setEmail, address, setAddress }){
     const [errors, setErrors] = useState([]);
     const [message, setMessage] = useState([]);
     const { setUser } = useContext(UserContext);
@@ -78,6 +78,7 @@ function UpdateProfile({ id, dob, name, setName, username, setUsername, phone_nu
           placeholder="Address"
           onChange={(e) => handleChange(e, setAddress)}
           showEditButton />
+          <button onClick={() => setEdit(edit => !edit)} className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Cancel</button>
           <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded"> Submit</button>
           </form>
           <b className="text-red-500">{errors?.map((err) => (
