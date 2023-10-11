@@ -12,17 +12,17 @@ function Profile(){
     const [email, setEmail] = useState(user.email)
     const [address, setAddress] = useState(user.address)
 
-    // console.log(user)
+    console.log(user)
 
     let phoneNumberString = phone_number?.toString().padStart(10, "0")
     let phoneNumber = phoneNumberString?.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
     let dob = "N/A"
-    let birth = user.birthday
+    let birth = user.dob
 
     if(birth !== null){
-    let birthdayString = new Date(user.birthday)
-    dob = birthdayString?.toLocaleDateString("en-US")
+    let dobString = new Date(user.dob)
+    dob = dobString?.toLocaleDateString("en-US")
     } 
 
     return(

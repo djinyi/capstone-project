@@ -7,7 +7,15 @@ class User < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true, length: { in: 2..15 }
     validates :phone_number, length: { is:10 }, numericality: true
-    validates :birthday, comparison: { less_than: Date.today }
     validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
+    validates :dob, presence:true
+
+    validate :dob_must_be_valid
+
+  def dob_must_be_valid
+    if dob > 18.years.ago.to_date
+      errors.add(:dob, "must be valid (must be 18 years old at least)")
+    end
+  end 
 end
 

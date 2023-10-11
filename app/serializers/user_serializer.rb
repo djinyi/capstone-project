@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :name, :email, :family_members, :phone_number, :address, :pets, :birthday
+  attributes :id, :username, :name, :email, :family_members, :phone_number, :address, :pets, :dob
 
   has_many :pets
   
