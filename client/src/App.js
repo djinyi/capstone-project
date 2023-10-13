@@ -29,6 +29,14 @@ function App() {
 
   }, [loggingIn, setUser]);
 
+  useEffect(() => {
+    fetch("/pets").then((r) => {
+      if (r.ok) {
+        r.json().then((data) => setPets(data));
+      }
+    });
+  }, [loggingIn, setPets]);
+
   function createContact(newContact, pet_id){
 
     let updatedPets = [...pets].map((pet) => {

@@ -6,6 +6,7 @@ import { PetContext } from "./pet/PetContext";
 function Pets(){
     const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
+    const [dob, setDob] = useState("");
     const [medical_needs, setMedical_needs] = useState("");
     const [notes, setNotes] = useState("");
     const [description, setDescription] = useState("");
@@ -15,7 +16,7 @@ function Pets(){
     function handleSubmit(e) {
         e.preventDefault();
 
-        const formData = {name, breed, medical_needs, notes, description}
+        const formData = {name, breed, medical_needs, notes, description, dob}
         console.log(formData)
         // if(!Number.isInteger(parseInt(birthday))){
         //     setErrors(["DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
@@ -40,6 +41,7 @@ function Pets(){
 
         setName("");
         setBreed("");
+        setDob("");
         setNotes("");
         setMedical_needs("");
         setDescription("");
@@ -80,6 +82,7 @@ function Pets(){
         contacts = {pet.contacts}
         deletePet={deletePet}
         updatePets={updatePets}
+        dob={pet.dob}
         />
     ))
 
@@ -116,6 +119,15 @@ function Pets(){
                 id="breed"
                 value={breed}
                 onChange={e => setBreed(e.target.value)}
+                />
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> DoB </label>
+                <input
+                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                
+                type="date"
+                id="dob"
+                value={dob}
+                onChange={e => setDob(e.target.value)}
                 />
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Description </label>
                 <input

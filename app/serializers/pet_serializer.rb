@@ -1,6 +1,6 @@
 class PetSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :name, :breed, :description, :picture, :medical_needs, :notes, :contacts, :image_urls
+  attributes :id, :name, :breed, :description, :picture, :medical_needs, :notes, :contacts, :image_urls, :dob
   
   has_many :contacts
 

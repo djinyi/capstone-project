@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import UpdatePet from "./UpdatePet";
 import PetGallerySubmit from "./PetGallerySubmit";
 
-function Pet({ updatePets, id, name, breed, medical_needs, notes, description, deletePet }){
+function Pet({ dob, updatePets, id, name, breed, medical_needs, notes, description, deletePet }){
     const [errors, setErrors] = useState([]);
     const [edit, setEdit] = useState(true);
     const [newName, setNewName] = useState(name)
@@ -29,10 +29,17 @@ function Pet({ updatePets, id, name, breed, medical_needs, notes, description, d
     // let birthdayString = newDob?.toString().padStart(6, "0")
     // let birthday = birthdayString?.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
 
+    if(dob !== null){
+        let dobString = new Date(dob)
+        dobString.setDate(dobString.getDate() + 1)
+        dob = dobString?.toLocaleDateString("en-US")
+    } 
+
     return(
         <div className="p-6">
             <p><i>Name: </i> <b className="font-semi-bold">{newName}</b></p>
             <p><i>Breed: </i>{newBreed}</p>
+            <p><i>DoB: </i>{dob}</p>
             <p><i>Description: </i>{newDescription}</p>
             <p><i>Medical Needs: </i>{newMedical_needs}</p>
             <p><i>Notes: </i>{newNotes}</p>
