@@ -17,10 +17,8 @@ function Pets(){
         e.preventDefault();
 
         const formData = {name, breed, medical_needs, notes, description, dob}
-        console.log(formData)
-        // if(!Number.isInteger(parseInt(birthday))){
-        //     setErrors(["DOB must be must be 6 numbers, eg. 010100 for January 1st 2000"])
-        // } else {
+        // console.log(formData)
+
         fetch(`/pets`, {
             method: "POST",
             headers: {
@@ -45,7 +43,6 @@ function Pets(){
         setNotes("");
         setMedical_needs("");
         setDescription("");
-        // }
         
     }
 
@@ -59,7 +56,7 @@ function Pets(){
       }
 
     function updatePets(data, id){
-        console.log(data, id)
+        // console.log(data, id)
 
         let list = pets.map((pet) => {
             if(pet.id === id){
