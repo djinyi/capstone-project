@@ -5,15 +5,15 @@ Pet.destroy_all
 Contact.destroy_all
 Checklist.destroy_all
 
-u1 = User.create(username: "Lunis Loon", password: "password", name: "Lunis Loon", family_members: ["FeatherTip", "Sticks"], address: "100 Birb St. Flagstaff, AZ 86005", dob: 01012020, phone_number: 9281234567, email: "troublebubble@birbmail.com")
-u2 = User.create(username: "Miles Razorbeak", password: "password", name: "Miles Razorbeak", family_members: ["Rio"], address: "101 Birb St. Flagstaff, AZ 86005", dob: 01012020, phone_number: 9282345678, email: "resplendentfeather@birbmail.com")
-u3 = User.create(username: "Kylo the Seedy", password: "password", name: "Kylo the Seedy", family_members: ["Safflower", "Sunflower"], address: "102 Birb St. Flagstaff, AZ 86005", dob: 01012020, phone_number: 9283456789, email: "seed4life@birbmail.com")
+u1 = User.create(username: "Lunis Loon", password: "password", name: "Lunis Loon", family_members: ["FeatherTip", "Sticks"], address: "100 Birb St. Flagstaff, AZ 86005", dob: "01/01/1991", phone_number: 9281234567, email: "troublebubble@birbmail.com")
+u2 = User.create(username: "Miles Razorbeak", password: "password", name: "Miles Razorbeak", family_members: ["Rio"], address: "101 Birb St. Flagstaff, AZ 86005", dob: "12/12/1940", phone_number: 9282345678, email: "resplendentfeather@birbmail.com")
+u3 = User.create(username: "Kylo the Seedy", password: "password", name: "Kylo the Seedy", family_members: ["Safflower", "Sunflower"], address: "102 Birb St. Flagstaff, AZ 86005", dob: "01/05/1980", phone_number: 9283456789, email: "seed4life@birbmail.com")
 
-p1 = Pet.create(name: "Tooth", breed: "Green Cheek Conure", description: "Yellow sided pineapple conure.", picture: nil, medical_needs: "N/A", dob: 01012020, notes: "N/A", user_id: u1.id)
-p2 = Pet.create(name: "Sharky", breed: "Monk Parakeet", description: "Blue and grayish.", picture: nil, medical_needs: "N/A", dob: 01012020, notes: "N/A", user_id: u3.id)
-p3 = Pet.create(name: "Hercules", breed: "Dalmation", description: "Very small. Head rather big for body.", picture: nil, medical_needs: "N/A", dob: 01012020, notes: "N/A", user_id: u2.id)
-p4 = Pet.create(name: "Carlos", breed: "Pig", description: "Pink and sturdy looking.", picture: nil, medical_needs: "N/A", dob: 01012020, notes: "N/A", user_id: u1.id)
-p5 = Pet.create(name: "Darwin", breed: "African Pygmy Hedgehog", description: "White fur.", picture: nil, medical_needs: "N/A", dob: 01012020, notes: "N/A", user_id: u3.id)
+p1 = Pet.create(name: "Tooth", breed: "Green Cheek Conure", description: "Yellow sided pineapple conure.", picture: nil, medical_needs: "N/A", dob: "01/05/2000", notes: "N/A", user_id: u1.id)
+p2 = Pet.create(name: "Sharky", breed: "Monk Parakeet", description: "Blue and grayish.", picture: nil, medical_needs: "N/A", dob: "01/05/2004", notes: "N/A", user_id: u3.id)
+p3 = Pet.create(name: "Hercules", breed: "Dalmation", description: "Very small. Head rather big for body.", picture: nil, medical_needs: "N/A", dob: "01/05/1980", notes: "N/A", user_id: u2.id)
+p4 = Pet.create(name: "Carlos", breed: "Pig", description: "Pink and sturdy looking.", picture: nil, medical_needs: "N/A", dob: "01/05/1975", notes: "N/A", user_id: u1.id)
+p5 = Pet.create(name: "Darwin", breed: "African Pygmy Hedgehog", description: "White fur.", picture: nil, medical_needs: "N/A", dob: "01/10/1999", notes: "N/A", user_id: u3.id)
 
 c1 = Contact.create(name: "Zak", organization: "human neighbor", relationship: "last resort petsitter", phone_number: 9284567823, address: "103 Birb St. Flagstaff, AZ 86005", email: "zak@birbmail.com", notes: "bribe with food")
 c2 = Contact.create(name: "Dr. Tereza Rumfola", organization: "Canyon Pet Hospital", relationship: "exotic veterinarian", phone_number: 9287745197, address: "1054 E Old Canyon Ct, Flagstaff, AZ 86001", email: "supportservices@canyonpet.com", notes: "open 24 hours")
