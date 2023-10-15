@@ -25,7 +25,10 @@ function LogIn({ setLoggingIn }) {
           setLoggingIn(loggingIn => !loggingIn)
         })
       } else {
-        r.json().then((err) => setErrors(err.error));
+        r.json().then((err) => {
+          setErrors(err.error)
+          setPassword("")
+        })
     }
 
     });
