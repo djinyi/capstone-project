@@ -13,6 +13,10 @@ class Pet < ApplicationRecord
     if dob.present? && dob > Date.yesterday
       errors.add(:dob, "must be valid")
     end
+
+    if dob < 100.years.ago.to_date
+      errors.add(:dob, "must be valid")
+    end
   end 
 
   def image_urls
