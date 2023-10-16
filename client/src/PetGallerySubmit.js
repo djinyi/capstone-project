@@ -52,8 +52,6 @@ function PetGallerySubmit({ id }){
         })}
     }
 
-
-
     return(
         <div>
             <h3 className="font-semibold text-gray-600"> Submit a photo of your pet! (only .jpeg and .png files)</h3>

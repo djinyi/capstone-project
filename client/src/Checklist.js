@@ -73,8 +73,6 @@ function deleteToDo(id){
     setChecklist(list)
 }
 
-
-
     return(
         <div>
         <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">Checklist</h1>

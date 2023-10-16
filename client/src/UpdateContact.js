@@ -29,7 +29,7 @@ function UpdateContact({edit, setEdit, updateContacts, id, newName, setNewName, 
         .then((r) => {
             if(r.ok) {
                 r.json().then((updated) => {
-                    console.log(updated)
+                    updateContacts(updated)
                     setErrors([])
                     setMessage("Edit submitted.")
                 });
@@ -52,6 +52,13 @@ function UpdateContact({edit, setEdit, updateContacts, id, newName, setNewName, 
           value={newName}
           placeholder="Name"
           onChange={(e) => handleChange(e, setNewName)}
+          showEditButton />
+          <input
+          className="bg-gray-100 m-1"
+          name="textbox"
+          value={newRelationship}
+          placeholder="Relationship"
+          onChange={(e) => handleChange(e, setNewRelationship)}
           showEditButton />
           <input
           className="bg-gray-100 m-1"

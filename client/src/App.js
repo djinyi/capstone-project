@@ -16,8 +16,8 @@ import { ContactContext } from "./contact/ContactContext";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
-  const {pets, setPets} = useContext(PetContext);
-  const {contacts, setContacts} = useContext(ContactContext);
+  const {setPets} = useContext(PetContext);
+  const {setContacts} = useContext(ContactContext);
   const [loggingIn, setLoggingIn] = useState(false);
 
   useEffect(() => {
@@ -46,42 +46,6 @@ function App() {
       }
     });
   }, [loggingIn, setContacts]);
-
-  // function createContact(newContact, pet_id){
-
-  //   let updatedPets = [...pets].map((pet) => {
-  //     if(pet.id == pet_id){
-  //       let newContacts = [...pet.contacts, newContact]
-  //       let updatedPet = {...pet, contacts: newContacts}
-  //       return updatedPet 
-  //     }
-  //     return pet
-  //   })
-  //   setPets(updatedPets)
-  // }
-
-  // function deleteContact(id){
-    
-  //   let updatedContact = [...pets].map((pet) => {
-
-  //     let thePet = pet.contacts.map((contact) => {
-  //       if(contact.id !== id){
-  //         let newContact = {...contact, pet_id:pet.id}
-  //         return newContact
-  //       }
-
-  //       return contact})
-  //       let thie = pet.contacts.filter((contact) => contact.id !== id)
-  //       let thies = {...pet, contacts:thie}
-
-  //     return thies
-  //   })
-  //   setPets(updatedContact)
-  // }
-
-
-  // let listContacts = pets?.map((pet) => pet.contacts).flat()
-
 
   return (
     <div className="font-serif">

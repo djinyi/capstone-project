@@ -12,7 +12,6 @@ function Contact({ updateContacts, deleteContact, id, name, organization, relati
     const [newEmail, setNewEmail] = useState(email)
     const [newAddress, setNewAddress] = useState(address)
     
-
     function handleDeleteClick() {
         fetch(`/contacts/${id}`, {
             method: "DELETE",

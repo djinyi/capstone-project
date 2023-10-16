@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "./user/UserContext";
 
-
 function NavBar({ setLoggingIn }) {
     const { setUser } = useContext(UserContext)
 
@@ -14,7 +13,6 @@ function NavBar({ setLoggingIn }) {
             }
         });
     }
-
 
     return (
         <nav className="flex flex-row items-center justify-center flex-wrap bg-white p-3">

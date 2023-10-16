@@ -11,7 +11,6 @@ function Pet({ dob, updatePets, id, name, breed, medical_needs, notes, descripti
     const [newMedical_needs, setNewMedical_needs] = useState(medical_needs)
     const [newNotes, setNewNotes] = useState(notes)
     const [newDescription, setNewDescription] = useState(description)
-    // const [photos, setPhotos] = useState(images)
 
     function handleDeleteClick() {
         fetch(`/pets/${id}`, {
@@ -25,9 +24,6 @@ function Pet({ dob, updatePets, id, name, breed, medical_needs, notes, descripti
             }
      })
     }
-
-    // let birthdayString = newDob?.toString().padStart(6, "0")
-    // let birthday = birthdayString?.replace(/(\d{2})(\d{2})(\d{2})/, "$1/$2/$3");
 
     if(dob !== null){
         let dobString = new Date(dob)
@@ -52,10 +48,7 @@ function Pet({ dob, updatePets, id, name, breed, medical_needs, notes, descripti
             <ul key={err}>{err}</ul>
           ))}</b>
             <PetGallerySubmit id={id}/>
-
-    
         </div>
-
     )
 }
 

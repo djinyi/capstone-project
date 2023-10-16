@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import Contact from "./Contact"
-// import { PetContext } from "./pet/PetContext";
 import { ContactContext } from "./contact/ContactContext";
 import { PetContext } from "./pet/PetContext";
 
@@ -14,8 +13,6 @@ function Contacts(){
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState([]);
     const [pet_id, setPet_id] = useState(0)
-    // const [contacts, setContacts] = useState(listContacts)
-    // const { pets } = useContext(PetContext);
     const { pets } = useContext(PetContext);
     const { contacts, setContacts } = useContext(ContactContext);
 
@@ -26,7 +23,6 @@ function Contacts(){
         setErrors(["Contact must be associated to selected pet. Create Pet if none."])
         } else {
         const formData = {name, organization, relationship, phone_number, email, address, notes}
-        // console.log(formData)
         fetch(`/${pet_id}}/contacts`, {
             method: "POST",
             headers: {
