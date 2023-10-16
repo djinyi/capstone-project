@@ -11,11 +11,13 @@ import Welcome from "./Welcome";
 import LogOut from "./LogOut";
 import { UserContext } from "./user/UserContext";
 import { PetContext } from "./pet/PetContext";
+import { ContactContext } from "./contact/ContactContext";
 
 
 function App() {
   const { user, setUser } = useContext(UserContext);
   const {pets, setPets} = useContext(PetContext);
+  const {contacts, setContacts} = useContext(ContactContext);
   const [loggingIn, setLoggingIn] = useState(false);
 
   useEffect(() => {
@@ -37,40 +39,48 @@ function App() {
     });
   }, [loggingIn, setPets]);
 
-  function createContact(newContact, pet_id){
-
-    let updatedPets = [...pets].map((pet) => {
-      if(pet.id == pet_id){
-        let newContacts = [...pet.contacts, newContact]
-        let updatedPet = {...pet, contacts: newContacts}
-        return updatedPet 
+  useEffect(() => {
+    fetch("/contacts").then((r) => {
+      if (r.ok) {
+        r.json().then((data) => setContacts(data));
       }
-      return pet
-    })
-    setPets(updatedPets)
-  }
+    });
+  }, [loggingIn, setContacts]);
 
-  function deleteContact(id){
+  // function createContact(newContact, pet_id){
+
+  //   let updatedPets = [...pets].map((pet) => {
+  //     if(pet.id == pet_id){
+  //       let newContacts = [...pet.contacts, newContact]
+  //       let updatedPet = {...pet, contacts: newContacts}
+  //       return updatedPet 
+  //     }
+  //     return pet
+  //   })
+  //   setPets(updatedPets)
+  // }
+
+  // function deleteContact(id){
     
-    let updatedContact = [...pets].map((pet) => {
+  //   let updatedContact = [...pets].map((pet) => {
 
-      let thePet = pet.contacts.map((contact) => {
-        if(contact.id !== id){
-          let newContact = {...contact, pet_id:pet.id}
-          return newContact
-        }
+  //     let thePet = pet.contacts.map((contact) => {
+  //       if(contact.id !== id){
+  //         let newContact = {...contact, pet_id:pet.id}
+  //         return newContact
+  //       }
 
-        return contact})
-        let thie = pet.contacts.filter((contact) => contact.id !== id)
-        let thies = {...pet, contacts:thie}
+  //       return contact})
+  //       let thie = pet.contacts.filter((contact) => contact.id !== id)
+  //       let thies = {...pet, contacts:thie}
 
-      return thies
-    })
-    setPets(updatedContact)
-  }
+  //     return thies
+  //   })
+  //   setPets(updatedContact)
+  // }
 
 
-  let listContacts = pets?.map((pet) => pet.contacts).flat()
+  // let listContacts = pets?.map((pet) => pet.contacts).flat()
 
 
   return (
@@ -86,7 +96,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} /> 
             <Route path="/pets" element={<Pets />} /> 
-            <Route path="/contacts" element={<Contacts deleteContact={deleteContact} createContact={createContact} listContacts={listContacts}/>} /> 
+            <Route path="/contacts" element={<Contacts />} /> 
             <Route path="/checklist" element={<Checklist />} /> 
             <Route path="/profile" element={<Profile />} />  
             <Route path="/logout" element={<LogOut />} />

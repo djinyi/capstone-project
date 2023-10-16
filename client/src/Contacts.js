@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import Contact from "./Contact"
+// import { PetContext } from "./pet/PetContext";
+import { ContactContext } from "./contact/ContactContext";
 import { PetContext } from "./pet/PetContext";
 
-function Contacts({ listContacts, deleteContact, createContact }){
+function Contacts(){
     const [name, setName] = useState("");
     const [organization, setOrganization] = useState("");
     const [relationship, setRelationship] = useState("");
@@ -12,8 +14,10 @@ function Contacts({ listContacts, deleteContact, createContact }){
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState([]);
     const [pet_id, setPet_id] = useState(0)
-    const [contacts, setContacts] = useState(listContacts)
+    // const [contacts, setContacts] = useState(listContacts)
+    // const { pets } = useContext(PetContext);
     const { pets } = useContext(PetContext);
+    const { contacts, setContacts } = useContext(ContactContext);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -32,7 +36,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
         })
         .then((r) => {
             if(r.ok) {
-                r.json().then((newContact) => createContact(newContact, pet_id))
+                r.json().then((newContact) => addContact(newContact))
             } else {
                 r.json().then((err) => setErrors(err.errors));
             }
@@ -49,8 +53,16 @@ function Contacts({ listContacts, deleteContact, createContact }){
         }
     }
 
+    function addContact(newContact){
+        setContacts([...contacts, newContact])
+      }
+
+    function deleteContact(id){
+        let updatedContacts = contacts.filter((contact) => contact.id !== id)
+        setContacts(updatedContacts)
+    }
+
     function updateContacts(updated){
-        console.log(updated)
 
         let list = contacts.map((contact) => {
             if(contact.id === updated.id){
@@ -59,7 +71,6 @@ function Contacts({ listContacts, deleteContact, createContact }){
         return contact
         })
         setContacts(list)
-
     }
 
 
@@ -93,7 +104,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
                  ))}</b>
             </div>
             <h3 className="font-semibold text-gray-600 mx-5"> Enter new contact info! </h3>
-            <p class="mx-5 text-gray-400">*required fields</p>
+            <p className="mx-5 text-gray-400">*required fields</p>
          <form className="block w-full max-w-lg p-5" onSubmit={handleSubmit}>
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name* </label>
             <input

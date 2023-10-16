@@ -56,7 +56,6 @@ function Pets(){
       }
 
     function updatePets(data, id){
-        // console.log(data, id)
 
         let list = pets.map((pet) => {
             if(pet.id === id){

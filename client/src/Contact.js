@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UpdateContact from "./UpdateContact";
 
-function Contacts({ updateContacts, deleteContact, id, name, organization, relationship, phoneNumber, email, address, notes }){
+function Contact({ updateContacts, deleteContact, id, name, organization, relationship, phoneNumber, email, address, notes }){
     const [errors, setErrors] = useState([]);
     const [edit, setEdit] = useState(true);
     const [newName, setNewName] = useState(name)
@@ -11,6 +11,7 @@ function Contacts({ updateContacts, deleteContact, id, name, organization, relat
     const [newNotes, setNewNotes] = useState(notes)
     const [newEmail, setNewEmail] = useState(email)
     const [newAddress, setNewAddress] = useState(address)
+    
 
     function handleDeleteClick() {
         fetch(`/contacts/${id}`, {
@@ -27,8 +28,6 @@ function Contacts({ updateContacts, deleteContact, id, name, organization, relat
 
     let phoneNumberString = newPhone_number?.toString().padStart(10, "0")
     let phone_number = phoneNumberString?.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
-
-    console.log(newName)
 
     return(
         <div className="p-4">
@@ -49,4 +48,4 @@ function Contacts({ updateContacts, deleteContact, id, name, organization, relat
     )
 }
 
-export default Contacts;
+export default Contact;

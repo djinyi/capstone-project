@@ -4,16 +4,12 @@ function UpdateContact({edit, setEdit, updateContacts, id, newName, setNewName, 
     const [errors, setErrors] = useState([]);
     const [message, setMessage] = useState([]);
 
-    console.log(id)
-
     function handleChange(e, setFn) {
         setFn(e.target.value)
     }
 
     function handleEdit(e){
         e.preventDefault();
-
-        console.log(id)
 
         fetch(`/contacts/${id}`, {
             method: "PATCH",
