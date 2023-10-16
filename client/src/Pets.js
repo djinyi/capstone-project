@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 // import { UserContext } from "./user/UserContext";
 import Pet from "./Pet"
 import { PetContext } from "./pet/PetContext";
+import { ContactContext } from "./contact/ContactContext";
 
 function Pets(){
     const [name, setName] = useState("");
@@ -12,6 +13,7 @@ function Pets(){
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
     const {pets, setPets} = useContext(PetContext);
+    const {contacts, setContacts} = useContext(ContactContext);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -53,6 +55,9 @@ function Pets(){
       function deletePet(id){
         let updatedPets = pets.filter((pet) => pet.id !== id)
         setPets(updatedPets)
+
+        let contactList = contacts.filter((contact) => contact.pets[0].id !== id)
+        setContacts(contactList)
       }
 
     function updatePets(data, id){
