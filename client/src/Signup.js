@@ -59,7 +59,7 @@ function SignUp({ setLoggingIn }) {
           <ul className="mx-5" key={err}>{err}</ul>
           ))}</b>
         <b className="text-red-500">{error}</b>
-        <p class="mx-5 text-gray-400">*required fields</p>
+        <p className="mx-5 text-gray-400">*required fields</p>
         <div className="md:flex md:items-center mb-6 pt-5">
           <div className="md:w-1/3">
             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="username"> Username* </label>

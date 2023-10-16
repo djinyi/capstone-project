@@ -17,7 +17,7 @@ class User < ApplicationRecord
       errors.add(:dob, "must be valid (must be 18 years old at least)")
     end
 
-    if dob < 100.years.ago.to_date
+    if dob.present? && dob < 100.years.ago.to_date
       errors.add(:dob, "must be valid")
     end
   end 

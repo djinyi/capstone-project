@@ -98,7 +98,7 @@ function Pets(){
                 ))}</b></p>
             </div>
             <h3 className="font-semibold text-gray-600 mx-5"> Enter new pet info! </h3>
-            <p class="mx-5 text-gray-400">*required fields</p>
+            <p className="mx-5 text-gray-400">*required fields</p>
             <form className="block w-full max-w-lg p-5" onSubmit={handleSubmit}>
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name* </label>
                 <input
