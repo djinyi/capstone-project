@@ -29,7 +29,7 @@ function UpdateContact({edit, setEdit, updateContacts, id, newName, setNewName, 
         .then((r) => {
             if(r.ok) {
                 r.json().then((updated) => {
-                    updateContacts(updated)
+                    console.log(updated)
                     setErrors([])
                     setMessage("Edit submitted.")
                 });

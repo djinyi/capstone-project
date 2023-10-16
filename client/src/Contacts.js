@@ -84,6 +84,7 @@ function Contacts(){
         email = {contact.email}
         address = {contact.address}
         phoneNumber = {contact.phone_number}
+        notes = {contact.notes}
         deleteContact={deleteContact}
         updateContacts={updateContacts}
         />
