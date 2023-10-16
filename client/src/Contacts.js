@@ -12,6 +12,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState([]);
     const [pet_id, setPet_id] = useState(0)
+    const [contacts, setContacts] = useState(listContacts)
     const { pets } = useContext(PetContext);
 
     function handleSubmit(e) {
@@ -40,7 +41,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
         setName("");
         setOrganization("");
         setRelationship("");
-        setPhone_number("");
+        setPhone_number([]);
         setEmail("");
         setAddress("");
         setNotes("")
@@ -48,8 +49,21 @@ function Contacts({ listContacts, deleteContact, createContact }){
         }
     }
 
+    function updateContacts(updated){
+        console.log(updated)
 
-    let contactList = listContacts?.map((contact) => (
+        let list = contacts.map((contact) => {
+            if(contact.id === updated.id){
+            return {...contact, ...updated}
+        }
+        return contact
+        })
+        setContacts(list)
+
+    }
+
+
+    let contactList = contacts?.map((contact) => (
         <Contact
         key = {contact.id}
         id = {contact.id}
@@ -60,6 +74,7 @@ function Contacts({ listContacts, deleteContact, createContact }){
         address = {contact.address}
         phoneNumber = {contact.phone_number}
         deleteContact={deleteContact}
+        updateContacts={updateContacts}
         />
     ))
 

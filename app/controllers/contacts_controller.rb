@@ -18,11 +18,11 @@ class ContactsController < ApplicationController
         render json: contact, status: :created
     end
 
-    # def update
-    #     contact = find_contact
-    #     Contact.update!(contact_params)
-    #     render json: contact, status: :ok
-    # end
+    def update
+        contact = find_contact
+        contact.update!(contact_params)
+        render json: contact, status: :ok
+    end
 
     def destroy
         contact = find_contact
