@@ -7,7 +7,7 @@ function Welcome({ loggingIn, setLoggingIn}){
     return(
         <div>
             {showLogin ? (
-                <div className="flex justify-center items-center">
+                <div className="flex flex-col justify-center items-center">
                     <Login loggingIn={loggingIn} setLoggingIn={setLoggingIn}/>
                     <p>Don't have an account?
                     <button className="italic m-1" onClick={() => setShowLogin(false)}>Sign Up</button>
