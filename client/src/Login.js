@@ -38,9 +38,9 @@ function LogIn({ setLoggingIn }) {
   return (
     <div>
       <form className="w-full max-w-sm" onSubmit={handleSubmit}>
-        <h3 className="text-3xl text-sky-500 text-center p-4">Login</h3>
+        <h3 className="text-3xl text-sky-500 text-center pt-4">Login</h3>
         <p>
-          <b className="text-red-500 m-7 pb-5">{errors}</b>
+          <b className="text-red-500 m-7 pb-4">{errors}</b>
         </p>
         <div className="md:flex md:items-center mb-6 mt-3">
           <div className="md:w-1/3">
