@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-// import { UserContext } from "./user/UserContext";
 import Pet from "./Pet"
 import { PetContext } from "./pet/PetContext";
 import { ContactContext } from "./contact/ContactContext";
@@ -19,7 +18,6 @@ function Pets(){
         e.preventDefault();
 
         const formData = {name, breed, medical_needs, notes, description, dob}
-        // console.log(formData)
 
         fetch(`/pets`, {
             method: "POST",
@@ -86,7 +84,6 @@ function Pets(){
         dob={pet.dob}
         />
     ))
-
     
     return(
         <div className="grid grid-cols-1">
