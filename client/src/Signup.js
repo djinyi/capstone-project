@@ -184,8 +184,9 @@ function SignUp({ setLoggingIn }) {
             />
           </div>
         </div>
-        <div className="md:w-1/3"></div>
-          <div className="md:w-2/3">
+        {/* <div className="md:w-1/3"></div> */}
+          {/* <div className="md:w-2/3"> */}
+          <div className="flex items-center justify-center">
             <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 mx-5 rounded" type="submit">Sign Up</button>
           </div>
 
