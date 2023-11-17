@@ -14,7 +14,7 @@ function Welcome({ loggingIn, setLoggingIn}){
                     </p>
                 </div>
             ) : (
-                <div className="mx-5">
+                <div className="mx-5 flex flex-col justify-center items-center">
                     <Signup loggingIn={loggingIn} setLoggingIn={setLoggingIn}/>
                     <p className="mx-5">Already have an account? 
                     <button className="italic m-1" onClick={() => setShowLogin(true)}>Log In</button>
