@@ -74,7 +74,7 @@ function deleteToDo(id){
 }
 
     return(
-        <div>
+        <div className="flex flex-col justify-center items-center">
         <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">Checklist</h1>
         <p>{checklist?.map((check) => ( 
             <li className="mx-6" key = {check.id}>{check.to_do} <b onClick={() => handleDeleteClick(check.id)}> x </b></li>)) }</p>
