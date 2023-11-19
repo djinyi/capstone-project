@@ -17,7 +17,7 @@ function Home(){
             <p className="my-6">Create a roster of your pets. Fill out as much information about them and include pictures. This is so that in the event of being separated from your pets, you have proper ID to claim them as well as crucial information like their medical needs, diet, and feeding schedules.</p>
             <Link className="text-xl text-sky-700 text-center underline" to="/contacts">My Contacts</Link>
             <p className="my-6">Build your contacts. We recommend collecting the contact information of your veterinarians, designated fosters, petsitters, breeders, neighbors, and your local pet shelters. </p>
-            <Link as="button" className="text-xl text-sky-700 text-center underline" to="/checklist">My Checklist</Link>
+            <Link as="button"className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" to="/checklist">My Checklist</Link>
             <p className="my-6">Curate your own checklist for your to-dos depending on your personal situation. Consider your geographical location, the number and types of animals you have, and the type of disaster. Check out our list of resources from ASPCA, Red Cross, and more.</p>
             </div>
             </div>
