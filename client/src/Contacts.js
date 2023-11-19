@@ -93,6 +93,7 @@ function Contacts(){
 
     return(
         <div className="mx-6">
+            <div className="flex flex-col justify-center items-center">
             <h1 className="font-display text-3xl italic text-sky-700 text-center p-4">Contacts</h1>
             {contactList}
             <div className="mx-5">
@@ -102,6 +103,8 @@ function Contacts(){
             </div>
             <h3 className="font-semibold text-gray-600 mx-5"> Enter new contact info! </h3>
             <p className="mx-5 text-gray-400">*required fields</p>
+            </div>
+            <div className="flex flex-col justify-center items-center">
          <form className="block w-full max-w-lg p-5" onSubmit={handleSubmit}>
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name* </label>
             <input
@@ -168,6 +171,7 @@ function Contacts(){
             <div className="relative"></div>
             <button className="flex-shrink-0 bg-sky-600 hover:bg-sky-500 border-sky-600 hover:sky-teal-700 text-sm border-4 text-white py-1 px-2 mr-3 my-2 rounded" type="submit"> Submit </button>
             </form>
+            </div>
             </div>
     )
 }

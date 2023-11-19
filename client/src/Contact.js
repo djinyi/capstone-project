@@ -29,7 +29,7 @@ function Contact({ updateContacts, deleteContact, id, name, organization, relati
     let phone_number = phoneNumberString?.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
 
     return(
-        <div className="p-4">
+        <div className="flex flex-col justify-center items-center p-4">
             <p>Name: {newName}</p>
             <p>Organization: {newOrganization}</p>
             <p>Relationship: {newRelationship}</p>
