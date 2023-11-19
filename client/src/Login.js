@@ -37,8 +37,7 @@ function LogIn({ setLoggingIn }) {
 
   return (
     <div>
-      <form classN
-      ame="w-full max-w-sm" onSubmit={handleSubmit}>
+      <form className="w-full max-w-sm" onSubmit={handleSubmit}>
         <h3 className="text-3xl text-sky-500 text-center pt-4">Login</h3>
         <p>
           <b className="text-red-500 m-7 pb-4">{errors}</b>
@@ -64,7 +63,7 @@ function LogIn({ setLoggingIn }) {
         </div>
         <div className="md:w-2/3">
         <input
-        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500"
           type="password"
           id="password"
           autoComplete="current-password"
